@@ -1,2 +1,2 @@
 # BinaryTools
- Python library containing different binary operations.
+ Python library containing different circuits.
