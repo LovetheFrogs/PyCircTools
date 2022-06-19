@@ -19,21 +19,21 @@ class Nand:
         return self
 
     def __calculate_output(self):
-        output = False
+        output = True
         for value in self.input:
-            output = not(output and value)
-        self.output = output
+            output = output and value
+        self.output = not output
         return self
 
     def add_input(self):
         self.input.append(False)
         self.numOfInputs += 1
-        self.output = self.__calculate_output()
+        self.__calculate_output()
         return self
 
     def remove_input(self):
         self.input.pop()
-        self.output = self.__calculate_output()
+        self.__calculate_output()
         self.numOfInputs -= 1
         return self
 
