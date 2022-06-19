@@ -1,7 +1,7 @@
 from BinaryTools.LogicGates import And
 
 
-def test_and_output():
+def test_and_gate():
     errors = []
     andGate = And.And()
 
