@@ -1,3 +1,6 @@
+from BinaryTools.Exceptions.CircuitToolsExceptions import NotTruthValue
+
+
 class Not:
     def __init__(self):
         self.input = True
@@ -10,6 +13,9 @@ class Not:
         return self.output
 
     def set_input(self, value):
+        if type(value) is not bool:
+            raise NotTruthValue
+
         self.input = value
         self.__calculate_output()
         return self
