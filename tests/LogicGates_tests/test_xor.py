@@ -1,4 +1,4 @@
-from BinaryTools.LogicGates import Xor
+from CTools.LogicGates import Xor
 
 
 def test_or_gate():

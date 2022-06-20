@@ -1,4 +1,4 @@
-from BinaryTools.LogicGates import And
+from CTools.LogicGates import And
 
 
 def test_and_gate():

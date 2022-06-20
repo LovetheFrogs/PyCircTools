@@ -1,8 +1,8 @@
-from BinaryTools.Exceptions.CircuitToolsExceptions import NotTruthValue
-from BinaryTools.Exceptions.LogicGateExceptions import NonPositiveInput, NotAnInput
+from CTools.Exceptions.CircuitToolsExceptions import NotTruthValue
+from CTools.Exceptions.LogicGateExceptions import NonPositiveInput, NotAnInput
 
 
-class Or:
+class Nand:
     def __init__(self, inputNumber=2):
         if inputNumber <= 0:
             raise NonPositiveInput
@@ -34,6 +34,13 @@ class Or:
         self.__calculate_output()
         return self
 
+    def __calculate_output(self):
+        output = True
+        for value in self.input:
+            output = output and value
+        self.output = not output
+        return self
+
     def add_input(self):
         self.input.append(False)
         self.numOfInputs += 1
@@ -42,17 +49,10 @@ class Or:
 
     def remove_input(self):
         self.input.pop()
-        self.numOfInputs -= 1
         self.__calculate_output()
-        return self
-
-    def __calculate_output(self):
-        output = False
-        for value in self.input:
-            output = output or value
-        self.output = output
+        self.numOfInputs -= 1
         return self
 
     @staticmethod
-    def __create_input(number):
-        return [False] * number
+    def __create_input(num):
+        return [False] * num

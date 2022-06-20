@@ -1,4 +1,4 @@
-from BinaryTools.Exceptions.CircuitToolsExceptions import NotTruthValue
+from CTools.Exceptions.CircuitToolsExceptions import NotTruthValue
 
 
 class Not:

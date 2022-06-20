@@ -1,5 +1,5 @@
-from BinaryTools.Exceptions.CircuitToolsExceptions import NotTruthValue
-from BinaryTools.Exceptions.LogicGateExceptions import NonPositiveInput, NotAnInput
+from CTools.Exceptions.CircuitToolsExceptions import NotTruthValue
+from CTools.Exceptions.LogicGateExceptions import NonPositiveInput, NotAnInput
 
 
 class Xor:

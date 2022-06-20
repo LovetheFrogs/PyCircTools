@@ -1,8 +1,8 @@
-from BinaryTools.Exceptions.CircuitToolsExceptions import NotTruthValue
-from BinaryTools.Exceptions.LogicGateExceptions import NonPositiveInput, NotAnInput
+from CTools.Exceptions.CircuitToolsExceptions import NotTruthValue
+from CTools.Exceptions.LogicGateExceptions import NonPositiveInput, NotAnInput
 
 
-class Nor:
+class Or:
     def __init__(self, inputNumber=2):
         if inputNumber <= 0:
             raise NonPositiveInput
@@ -50,7 +50,7 @@ class Nor:
         output = False
         for value in self.input:
             output = output or value
-        self.output = not output
+        self.output = output
         return self
 
     @staticmethod
