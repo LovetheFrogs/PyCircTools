@@ -1,4 +1,4 @@
-from BinaryTools.LogicGates import Nand
+from CTools.LogicGates import Nand
 
 
 def test_and_gate():

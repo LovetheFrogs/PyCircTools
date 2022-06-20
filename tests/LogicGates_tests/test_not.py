@@ -1,4 +1,4 @@
-from BinaryTools.LogicGates import Not
+from CTools.LogicGates import Not
 
 
 def test_not_gate():

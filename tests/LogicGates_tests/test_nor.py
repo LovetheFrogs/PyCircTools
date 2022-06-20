@@ -1,4 +1,4 @@
-from BinaryTools.LogicGates import Nor
+from CTools.LogicGates import Nor
 
 
 def test_or_gate():
