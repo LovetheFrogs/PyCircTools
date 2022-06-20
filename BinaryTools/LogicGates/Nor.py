@@ -1,10 +1,20 @@
+from BinaryTools.Exceptions.CircuitToolsExceptions import NotTruthValue
+from BinaryTools.Exceptions.LogicGateExceptions import NonPositiveInput, NotAnInput
+
+
 class Nor:
     def __init__(self, inputNumber=2):
+        if inputNumber <= 0:
+            raise NonPositiveInput
+
         self.input = self.__create_input(inputNumber)
-        self.output = True
+        self.output = self.__calculate_output()
         self.numOfInputs = inputNumber
 
     def get_input(self, num):
+        if num >= self.numOfInputs:
+            raise NotAnInput
+
         return self.input[num]
 
     def get_output(self):
@@ -14,6 +24,12 @@ class Nor:
         return self.numOfInputs
 
     def set_input(self, num, value):
+        if num >= self.numOfInputs:
+            raise NotAnInput
+
+        if type(value) is not bool:
+            raise NotTruthValue
+
         self.input[num] = value
         self.__calculate_output()
         return self
