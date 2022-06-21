@@ -1,11 +1,11 @@
-# CTools
+# PyCircTools
 
-CTools is a python package wich contains tools to build circuits using python 3. It is a work in progress, and will be updated frequently to add more
+PyCircTools is a python package wich contains tools to build circuits using python 3. It is a work in progress, and will be updated frequently to add more
 modules. 
 
 ## Table of contents
 
-- [1. Installing CTools and importing it](#installing-CTools)
+- [1. Installing PyCircTools and importing it](#installing-CTools)
 - [2. Logic Gates Module](#logic-gates)
     + [2.1. NOT gate](#not-gate)
         * [2.1.1. Attributes](#not-attributes)
@@ -32,7 +32,7 @@ modules.
         * [2.5.2. Constructor](#nor-constructor)
         * [2.5.3. Methods](#nor-methods)
 - [Exceptions](#exceptions)
-    + [CTools Exceptions](#ctools-exceptions)
+    + [PyCircTools Exceptions](#ctools-exceptions)
         * [NotTruthValue](#not-truth-value)
     + [Logic gates Exceptions](#logic-gates-exceptions)
         * [NonPositiveInput](#non-positive-input)
@@ -40,23 +40,23 @@ modules.
 - [About](#about)
 
 <a name="installing-CTools"></a>
-## Installing CTools and importing it.
+## Installing PyCircTools and importing it.
 
-To install CTools, use pip by calling the following command:
+To install PyCircTools, use pip by calling the following command:
 
 ```
 pip install PyCircTools
 ```
 Importing it is as easy as it gets, just insert the line 
 ```
-from CTools.*subpackage* import *modules*
+from PyCircTools.*subpackage* import *modules*
 ``` 
 at the start of your code, and substitute subpackage with the package you want, and modules with the modules you want to import to your project.
 
 <a name="logic-gates"></a>
 ## Logic Gates Module
 
-Here is an in depth explanation for the CTools.LogicGates module. LogicGates adds implementation for common logic gates used in circuit design. It allows
+Here is an in depth explanation for the PyCircTools.LogicGates module. LogicGates adds implementation for common logic gates used in circuit design. It allows
 to create gates with as many inputs as the user decides (except for the NOT gate). For further reference about each of the gates, check it's section in 
 this README.
 
@@ -357,9 +357,9 @@ for all of the inputs of the gate.
 CTools implements the following Exceptions. They are divided depending on wich module they are intended to use.
 
 <a name="ctools-exceptions"></a>
-### CTools Exceptions
+### PyCircTools Exceptions
 
-These are the general Exceptions used all over the CTools library. An explanation of each one follows below.
+These are the general Exceptions used all over the PyCircTools library. An explanation of each one follows below.
 
 <a name="not-truth-value"></a>
 #### NotTruthValue Exception
@@ -370,7 +370,7 @@ is of another data type.
 <a name="logic-gates-exceptions"></a>
 ### Logic gates Exceptions
 
-These are the exceptions used in the CTools.LogicGates module. An explanation of each one follows below.
+These are the exceptions used in the PyCircTools.LogicGates module. An explanation of each one follows below.
 
 <a name="non-positive-input"></a>
 #### NonPositiveInput
@@ -386,4 +386,4 @@ NotAnInput is raised when the selected input does not exist.
 <a name="about"></a>
 ## About
 
-CTools is software developed by LovetheFrogs and licensed under GPL-3.0 license.
+PyCircTools is software developed by LovetheFrogs and licensed under GPL-3.0 license.
