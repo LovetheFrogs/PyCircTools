@@ -45,7 +45,7 @@ modules.
 To install CTools, use pip by calling the following command:
 
 ```
-pip install CTools
+pip install PyCircTools
 ```
 Importing it is as easy as it gets, just insert the line 
 ```
