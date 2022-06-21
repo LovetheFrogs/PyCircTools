@@ -5,3 +5,4 @@ circuits using code, serving as an alternative to programs like ModelSIM.
 
 from CTools.Exceptions import *
 from CTools.LogicGates import *
+from CTools.Multiplexers import *
