@@ -80,6 +80,7 @@ class Mux2to1:
             raise NotTruthValue
 
         self.set = value
+        self.output = self.__calculate_output()
         return self
 
     def __calculate_output(self):
