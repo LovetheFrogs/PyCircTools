@@ -18,7 +18,7 @@ class NonExistingInput(MultiplexerException):
     """
     def __init__(self, requestedInput=None):
         if requestedInput is not None:
-            self.msg = "Input " + requestedInput + " does not exist."
+            self.msg = "Input " + str(requestedInput) + " does not exist."
         else:
             self.msg = "Input requested does not exist."
         super().__init__(self.msg)

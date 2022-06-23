@@ -43,4 +43,3 @@ def test_Mux2to1():
         pass
 
     assert not errors, "errors occured:\n{}".format("\n".join(errors))
-    
