@@ -2,23 +2,23 @@ from CTools.Exceptions.MultiplexersExceptions import NonExistingInput, NonExisti
 from CTools.Exceptions.CircuitToolsExceptions import NotTruthValue
 
 
-class Mux8to1:
+class Mux16to1:
     """
-    8 to 1 Multiplexer. Takes three bits as Set input.
+    16 to 1 Multiplexer. Takes four bits as Set input.
     """
     def __init__(self):
         """
-        Mux8to1 class constructor method.
+        Mux16to1 class constructor method.
         """
-        self.input = [False] * 8
-        self.set = [False] * 3
+        self.input = [False] * 16
+        self.set = [False] * 4
         self.output = self.__calculate_output()
 
     def get_input(self, num):
         """
         Method get_input is used to get the value of input[num]
 
-        :param num: Number of the input you want to get. It is a number from 0 to 7.
+        :param num: Number of the input you want to get. It is a number from 0 to 15.
         :type num: int
         :raises NonExistingInput: Raised when a Multiplexer/Demultiplexer doesn't have the input asked for.
         :return: Value of the desired input (num).
@@ -33,7 +33,7 @@ class Mux8to1:
         """
         Method get_set gets the value of the set[setNum] control signal.
 
-        :param setNum: Number of the set control signal you want to get, ranges from 0 to 3.
+        :param setNum: Number of the set control signal you want to get, ranges from 0 to 4.
         :type setNum: int
         :raises NonExistingControlSignal: Raised when a Multiplexer/Demultiplexer doesn't have setNum control signal.
         :return: Value of the desired set control signal (setNum).
@@ -46,7 +46,7 @@ class Mux8to1:
 
     def get_output(self):
         """
-        Method get_output gets the output of the 8 to 1 Multiplexer.
+        Method get_output gets the output of the 16 to 1 Multiplexer.
 
         :return: Value of the output.
         :rtype: bool
@@ -97,18 +97,27 @@ class Mux8to1:
 
     def __calculate_output(self):
         """
-        Private method __calculate_output calculates the output signal using the 8-to-1 mux formula.
+        Private method __calculate_output calculates the output signal using the 16-to-1 mux formula.
 
         :return: Value of the output signal.
         :rtype: bool
         """
-        first = not self.set[2] and not self.set[1] and not self.set[0] and self.input[0]
-        second = not self.set[2] and not self.set[1] and self.set[0] and self.input[1]
-        third = not self.set[2] and self.set[1] and not self.set[0] and self.input[2]
-        fourth = not self.set[2] and self.set[1] and self.set[0] and self.input[3]
-        fifth = self.set[2] and not self.set[1] and not self.set[0] and self.input[4]
-        sixth = self.set[2] and not self.set[1] and self.set[0] and self.input[5]
-        seventh = self.set[2] and self.set[1] and not self.set[0] and self.input[6]
-        eight = self.set[2] and self.set[1] and self.set[0] and self.input[7]
+        first = not self.set[3] and not self.set[2] and not self.set[1] and not self.set[0] and self.input[0]
+        second = not self.set[3] and not self.set[2] and not self.set[1] and self.set[0] and self.input[1]
+        third = not self.set[3] and not self.set[2] and self.set[1] and not self.set[0] and self.input[2]
+        fourth = not self.set[3] and not self.set[2] and self.set[1] and self.set[0] and self.input[3]
+        fifth = not self.set[3] and self.set[2] and not self.set[1] and not self.set[0] and self.input[4]
+        sixth = not self.set[3] and self.set[2] and not self.set[1] and self.set[0] and self.input[5]
+        seventh = not self.set[3] and self.set[2] and self.set[1] and not self.set[0] and self.input[6]
+        eight = not self.set[3] and self.set[2] and self.set[1] and self.set[0] and self.input[7]
+        ninth = self.set[3] and not self.set[2] and not self.set[1] and not self.set[0] and self.input[8]
+        tenth = self.set[3] and not self.set[2] and not self.set[1] and self.set[0] and self.input[9]
+        eleventh = self.set[3] and not self.set[2] and self.set[1] and not self.set[0] and self.input[10]
+        twelfth = self.set[3] and not self.set[2] and self.set[1] and self.set[0] and self.input[11]
+        thirteenth = self.set[3] and self.set[2] and not self.set[1] and not self.set[0] and self.input[12]
+        fourteenth = self.set[3] and self.set[2] and not self.set[1] and self.set[0] and self.input[13]
+        fifteenth = self.set[3] and self.set[2] and self.set[1] and not self.set[0] and self.input[14]
+        sixteenth = self.set[3] and self.set[2] and self.set[1] and self.set[0] and self.input[15]
 
-        return first or second or third or fourth or fifth or sixth or seventh or eight
+        return first or second or third or fourth or fifth or sixth or seventh or eight or ninth or tenth or eleventh \
+            or twelfth or thirteenth or fourteenth or fifteenth or sixteenth
