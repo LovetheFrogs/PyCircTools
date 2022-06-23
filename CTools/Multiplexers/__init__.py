@@ -5,3 +5,4 @@ This package includes some Multiplexers and Demultiplexers (from 1 to 2 to 1 to 
 """
 
 from CTools.Multiplexers.Mux2to1 import *
+from CTools.Multiplexers.Mux4to1 import *
