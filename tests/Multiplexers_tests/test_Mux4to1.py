@@ -60,4 +60,4 @@ def test_Mux4to1():
     except NonExistingInput:
         pass
 
-    assert not errors, "errors occured:\n{}".format("\n".join(errors))
+    assert not errors, "errors occurred:\n{}".format("\n".join(errors))
