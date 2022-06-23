@@ -1,6 +1,6 @@
 # PyCircTools
 
-PyCircTools is a python package wich contains tools to build circuits using python 3. It is a work in progress, and will be updated frequently to add more
+PyCircTools is a python package which contains tools to build circuits using python 3. It is a work in progress, and will be updated frequently to add more
 modules. 
 
 ## Table of contents
@@ -31,6 +31,23 @@ modules.
         * [2.5.1. Attributes](#nor-attributes)
         * [2.5.2. Constructor](#nor-constructor)
         * [2.5.3. Methods](#nor-methods)
+- [3. Multiplexers Module](#multiplexers)
+    + [3.1. 2-to-1 Multiplexer](#2-1-mux)
+        * [3.1.1. Attributes](#2-1-attributes)
+        * [3.1.2. Constructor](#2-1-constructor)
+        * [3.1.3. Methods](#2-1-methods)
+    + [3.1. 4-to-1 Multiplexer](#4-1-mux)
+        * [3.1.1. Attributes](#4-1-attributes)
+        * [3.1.2. Constructor](#4-1-constructor)
+        * [3.1.3. Methods](#4-1-methods)
+    + [3.1. 8-to-1 Multiplexer](#8-1-mux)
+        * [3.1.1. Attributes](#8-1-attributes)
+        * [3.1.2. Constructor](#8-1-constructor)
+        * [3.1.3. Methods](#8-1-methods)
+    + [3.1. 16-to-1 Multiplexer](#16-1-mux)
+        * [3.1.1. Attributes](#16-1-attributes)
+        * [3.1.2. Constructor](#16-1-constructor)
+        * [3.1.3. Methods](#16-1-methods)
 - [Exceptions](#exceptions)
     + [PyCircTools Exceptions](#ctools-exceptions)
         * [NotTruthValue](#not-truth-value)
@@ -57,13 +74,13 @@ at the start of your code, and substitute subpackage with the package you want, 
 ## Logic Gates Module
 
 Here is an in depth explanation for the PyCircTools.LogicGates module. LogicGates adds implementation for common logic gates used in circuit design. It allows
-to create gates with as many inputs as the user decides (except for the NOT gate). For further reference about each of the gates, check it's section in 
+to create gates with as many inputs as the user decides (except for the NOT gate). For further reference about each of the gates, check its section in 
 this README.
 
 <a name="not-gate"></a>
 ### NOT gate
 
-The **NOT gate** is a simple logic gate wich simply inverts the input. It implements the logical negation (¬) and has one input and one output. The NOT 
+The **NOT gate** is a simple logic gate which simply inverts the input. It implements the logical negation (¬) and has one input and one output. The NOT 
 gate symbol and truth table is shown below.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/102818341/174762309-03ead86b-bdb4-4d99-9597-c7d13ac67949.png" alt="NOT gate"></p>
@@ -84,7 +101,7 @@ The NOT gate has the following attributes:
 The constructor of the NOT gate has the following format: <br>
 
 <p align="center" style="bold" ><b>Not()</b></p>
-Wich doesn't take any parameters and returns a NOT gate with its Input set to True and has its output calculated by the not gate <a href="#not-calculate-output">calculate output method)</a>
+Which doesn't take any parameters and returns a NOT gate with its Input set to True and has its output calculated by the not gate <a href="#not-calculate-output">calculate output method)</a>
 
 <a name="not-methods"></a>
 #### Methods
@@ -98,11 +115,11 @@ Gets the input of the gate. It returns a bool containing the requested value.
 Gets the output of the gate. It returns a bool containing the requested value.
 
 - **set_input(bool _value_):**
-Sets the input of the gate to the truth value _'value'_, wich is passed as a parameter.
+Sets the input of the gate to the truth value _'value'_, which is passed as a parameter.
 
 <a name="not-calculate-output"></a>
 - **__calculate_output():**
-Private method wich calculates the output of the gate. This output is:
+Private method which calculates the output of the gate. This output is:
 ```
 not(input)
 ```
@@ -110,7 +127,7 @@ not(input)
 <a name="and-gate"></a>
 ### AND gate
 
-The **AND gate** is a logic gate with two or more inputs that implements the logical conjunction (^). It's output is True only when all of the inputs are True. If any of them is set to False, the output willthen be False. Below you can find the AND truth table.
+The **AND gate** is a logic gate with two or more inputs that implements the logical conjunction (^). It's output is True only when all the inputs are True. If any of them is set to False, the output will then be False. Below you can find the AND truth table.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/102818341/174772306-1a861819-1046-41d4-80d0-f84d58155e99.png" alt="AND gate"></p>
 
@@ -130,7 +147,7 @@ The AND gate has the following attributes:
 The constructor of the AND gate has the following format: <br>
 
 <p align="center"><b>And(int <i>inputNumber</i>)</b></p>
-Wich takes the inputNumber parameter, an integer set to two by default wich can be changed to have more inputs to the gate. The Input will be initialized to a list of False values, containing as many values as inputs specified, Output will be calculated by the and gate <a href="#and-calculate-output">calculate output method</a> and numOfInputs will take the same value as the parameter inputNumber.
+Which takes the inputNumber parameter, an integer set to two by default which can be changed to have more inputs to the gate. The Input will be initialized to a list of False values, containing as many values as inputs specified, Output will be calculated by the and gate <a href="#and-calculate-output">calculate output method</a> and numOfInputs will take the same value as the parameter inputNumber.
 
 <a name="and-methods"></a>
 #### Methods
@@ -144,23 +161,23 @@ Gets the number of inputs of the gate. It returns an int containing the requeste
 - **set_input(int _num_, bool _value_):**
 Sets the input _'num'_ to the truth value _'value'_. Both of them are passed as parameters to the method.
 - **add_input():**
-Adds a new input to the gate, wich defaults to False and updates both output and numOfInputs.
+Adds a new input to the gate, which defaults to False and updates both output and numOfInputs.
 - **remove_input():**
 Removes the last input and updates both output and numOfInputs.
 <a name="and-calculate-output"></a>
 - **__calculate_output():**
-Private method wich calculates the output of the gate. This output is: 
+Private method which calculates the output of the gate. This output is: 
 ```
 (input_n and input_n+1)
 ```
-for all of the inputs of the gate.
+for all the inputs of the gate.
 
 <a name="nand-gate"></a>
 ### NAND gate
 
-The **NAND gate** is a logic gate with two or more inputs wich produces a False output only when all of its inputs are True. Its output is True in any other case. In other words, its output is calculated by negating the conjunction of all inputs of the gate. Below you can find the NAND truth table.
+The **NAND gate** is a logic gate with two or more inputs which produces a False output only when all of its inputs are True. Its output is True in any other case. In other words, its output is calculated by negating the conjunction of all inputs of the gate. Below you can find the NAND truth table.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/102818341/174785289-c57e3f8a-eaf3-4c5c-9dcd-98d83f8b2ce4.png" alt="NAND gate"></a>
+<p align="center"><img src="https://user-images.githubusercontent.com/102818341/174785289-c57e3f8a-eaf3-4c5c-9dcd-98d83f8b2ce4.png" alt="NAND gate"></p>
 
 <a name="nand-attributes"></a>
 #### Attributes
@@ -179,7 +196,7 @@ The NAND gate has the following attributes:
 The constructor of the NAND gate has the following format: <br>
 
 <p align="center"><b>Nand(int <i>inputNumber</i>)</b></p>
-Wich takes the inputNumber parameter, an integer set to two by default wich can be changed to have more inputs to the gate. The Input will be initialized to a list of False values, containing as many values as inputs specified, Output will be calculated by the nand gate <a href="#nand-calculate-output">calculate output method</a> and numOfInputs will take the same value as the parameter inputNumber.
+Which takes the inputNumber parameter, an integer set to two by default which can be changed to have more inputs to the gate. The Input will be initialized to a list of False values, containing as many values as inputs specified, Output will be calculated by the nand gate <a href="#nand-calculate-output">calculate output method</a> and numOfInputs will take the same value as the parameter inputNumber.
 
 <a name="nand-methods"></a>
 #### Methods
@@ -193,23 +210,23 @@ Gets the number of inputs of the gate. It returns an int containing the requeste
 - **set_input(int _num_, bool _value_):**
 Sets the input _'num'_ to the truth value _'value'_. Both of them are passed as parameters to the method.
 - **add_input():**
-Adds a new input to the gate, wich defaults to False and updates both output and numOfInputs.
+Adds a new input to the gate, which defaults to False and updates both output and numOfInputs.
 - **remove_input():**
 Removes the last input and updates both output and numOfInputs.
 <a name="nand-calculate-output"></a>
 - **__calculate_output():**
-Private method wich calculates the output of the gate. This output is 
+Private method which calculates the output of the gate. This output is 
 ```
 not(input_n and input_n+1) 
 ```
-for all of the inputs of the gate.
+for all the inputs of the gate.
 
 <a name="or-gate"></a>
 ### OR gate
 
-The **OR gate** is a logic gate with two or more inputs wich implements the logical disjunction (∨). It's output is True if any of the inputs is True, and False only when all of the gate's inputs are set to False. Below you can find the OR gate truth table.
+The **OR gate** is a logic gate with two or more inputs which implements the logical disjunction (∨). Its output is True if any of the inputs is True, and False only when all the gate's inputs are set to False. Below you can find the OR gate truth table.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/102818341/174787252-49747650-4a1c-415e-ae3d-6a42064133b6.png" alt="OR gate"></a>
+<p align="center"><img src="https://user-images.githubusercontent.com/102818341/174787252-49747650-4a1c-415e-ae3d-6a42064133b6.png" alt="OR gate"></p>
 
 <a name="or-attributes"></a>
 #### Attributes
@@ -228,7 +245,7 @@ The OR gate has the following attributes:
 The constructor of the OR gate has the following format: <br>
 
 <p align="center"><b>Or(int <i>inputNumber</i>)</b></p>
-Wich takes the inputNumber parameter, an integer set to two by default wich can be changed to have more inputs to the gate. The Input will be initialized to a list of False values, containing as many values as inputs specified, Output will be calculated by the or gate <a href="#or-calculate-output">calculate output method</a> and numOfInputs will take the same value as the parameter inputNumber.
+Which takes the inputNumber parameter, an integer set to two by default which can be changed to have more inputs to the gate. The Input will be initialized to a list of False values, containing as many values as inputs specified, Output will be calculated by the or gate <a href="#or-calculate-output">calculate output method</a> and numOfInputs will take the same value as the parameter inputNumber.
 
 <a name="or-methods"></a>
 #### Methods
@@ -242,23 +259,23 @@ Gets the number of inputs of the gate. It returns an int containing the requeste
 - **set_input(int _num_, bool _value_):**
 Sets the input _'num'_ to the truth value _'value'_. Both of them are passed as parameters to the method.
 - **add_input():**
-Adds a new input to the gate, wich defaults to False and updates both output and numOfInputs.
+Adds a new input to the gate, which defaults to False and updates both output and numOfInputs.
 - **remove_input():**
 Removes the last input and updates both output and numOfInputs.
 <a name="or-calculate-output"></a>
 - **__calculate_output():**
-Private method wich calculates the output of the gate. This output is 
+Private method which calculates the output of the gate. This output is 
 ```
 (input_n or input_n+1)
 ```
-for all of the inputs of the gate.
+for all the inputs of the gate.
 
 <a name="xor-gate"></a>
 ### XOR gate
 
 The **XOR gate**is a logic gate with two or more inputs whose output is True when the number of True inputs is odd. In any other case, the output value is False. Below you can find the OR gate truth table.
 
-<p align="center"><img src="https://user-images.githubusercontent.com/102818341/174814299-a7bfc87a-8274-44d7-a4ac-d0845aafca40.png" alt="XOR gate"></a>
+<p align="center"><img src="https://user-images.githubusercontent.com/102818341/174814299-a7bfc87a-8274-44d7-a4ac-d0845aafca40.png" alt="XOR gate"></p>
 
 <a name="xor-attributes"></a>
 #### Attributes
@@ -277,7 +294,7 @@ The XOR gate has the following attributes:
 The constructor of the XOR gate has the following format: <br>
 
 <p align="center"><b>Xor(int <i>inputNumber</i>)</b></p>
-Wich takes the inputNumber parameter, an integer set to two by default wich can be changed to have more inputs to the gate. The Input will be initialized to a list of False values, containing as many values as inputs specified, Output will be calculated by the xor gate <a href="#xor-calculate-output">calculate output method</a> and numOfInputs will take the same value as the parameter inputNumber.
+Which takes the inputNumber parameter, an integer set to two by default which can be changed to have more inputs to the gate. The Input will be initialized to a list of False values, containing as many values as inputs specified, Output will be calculated by the xor gate <a href="#xor-calculate-output">calculate output method</a> and numOfInputs will take the same value as the parameter inputNumber.
 
 <a name="xor-methods"></a>
 #### Methods
@@ -291,21 +308,21 @@ Gets the number of inputs of the gate. It returns an int containing the requeste
 - **set_input(int _num_, bool _value_):**
 Sets the input _'num'_ to the truth value _'value'_. Both of them are passed as parameters to the method.
 - **add_input():**
-Adds a new input to the gate, wich defaults to False and updates both output and numOfInputs.
+Adds a new input to the gate, which defaults to False and updates both output and numOfInputs.
 - **remove_input():**
 Removes the last input and updates both output and numOfInputs.
 <a name="xor-calculate-output"></a>
 - **__calculate_output():**
-Private method wich calculates the output of the gate. This output is 
+Private method which calculates the output of the gate. This output is 
 ```
 [(input_n and not(input_n+1)) or (not(input_n) and input_n+1)] 
 ```
-for all of the inputs of the gate.
+for all the inputs of the gate.
 
 <a name="nor-gate"></a>
 ### NOR gate
 
-The **NOR gate** is a logic gate wich can take two or more inputs. Its output is True only when all of the inputs are False. If any of the inputs is True, the output will be False. In other words, its output is calculated by negating the disjunction of all inputs of the gate. Below you can find the NOR gate truth table.
+The **NOR gate** is a logic gate which can take two or more inputs. Its output is True only when all the inputs are False. If any of the inputs is True, the output will be False. In other words, its output is calculated by negating the disjunction of all inputs of the gate. Below you can find the NOR gate truth table.
 
 <p align="center"><img src="https://user-images.githubusercontent.com/102818341/174819379-e17db12b-5324-4145-be96-d4699ed8a03f.png" alt="NOR gate"></p>
 
@@ -326,7 +343,7 @@ The NOR gate has the following attributes:
 The constructor of the NOR gate has the following format: <br>
 
 <p align="center"><b>Nor(int <i>inputNumber</i>)</b></p>
-Wich takes the inputNumber parameter, an integer set to two by default wich can be changed to have more inputs to the gate. The Input will be initialized to a list of False values, containing as many values as inputs specified, Output will be calculated by the Nor gate <a href="#nor-calculate-output">calculate output method</a> and numOfInputs will take the same value as the parameter inputNumber.
+Which takes the inputNumber parameter, an integer set to two by default which can be changed to have more inputs to the gate. The Input will be initialized to a list of False values, containing as many values as inputs specified, Output will be calculated by the Nor gate <a href="#nor-calculate-output">calculate output method</a> and numOfInputs will take the same value as the parameter inputNumber.
 
 <a name="nor-methods"></a>
 #### Methods
@@ -340,21 +357,72 @@ Gets the number of inputs of the gate. It returns an int containing the requeste
 - **set_input(int _num_, bool _value_):**
 Sets the input _'num'_ to the truth value _'value'_. Both of them are passed as parameters to the method.
 - **add_input():**
-Adds a new input to the gate, wich defaults to False and updates both output and numOfInputs.
+Adds a new input to the gate, which defaults to False and updates both output and numOfInputs.
 - **remove_input():**
 Removes the last input and updates both output and numOfInputs.
 <a name="nor-calculate-output"></a>
 - **__calculate_output():**
-Private method wich calculates the output of the gate. This output is 
+Private method which calculates the output of the gate. This output is 
 ```
 not(input_n or input_n+1)
 ```
-for all of the inputs of the gate.
+for all the inputs of the gate.
+
+<a name="multiplexers"></a>
+## Multiplexers Module
+
+<a name="2-to-1-mux"></a>
+### 2-to-1 Multiplexer
+
+<a name="2-1-attributes"></a>
+#### Attributes
+
+<a name="2-1-constructor"></a>
+#### Constructor
+
+<a name="2-1-methods"></a>
+#### Methods
+
+<a name="4-to-1-mux"></a>
+### 4-to-1 Multiplexer
+
+<a name="4-1-attributes"></a>
+#### Attributes
+
+<a name="4-1-constructor"></a>
+#### Constructor
+
+<a name="4-1-methods"></a>
+#### Methods
+
+<a name="8-to-1-mux"></a>
+### 8-to-1 Multiplexer
+
+<a name="8-1-attributes"></a>
+#### Attributes
+
+<a name="8-1-constructor"></a>
+#### Constructor
+
+<a name="8-1-methods"></a>
+#### Methods
+
+<a name="16-to-1-mux"></a>
+### 16-to-1 Multiplexer
+
+<a name="16-1-attributes"></a>
+#### Attributes
+
+<a name="16-1-constructor"></a>
+#### Constructor
+
+<a name="16-1-methods"></a>
+#### Methods
 
 <a name="exceptions"></a>
 ## Exceptions
 
-CTools implements the following Exceptions. They are divided depending on wich module they are intended to use.
+CTools implements the following Exceptions. They are divided depending on which module they are intended to use.
 
 <a name="ctools-exceptions"></a>
 ### PyCircTools Exceptions
