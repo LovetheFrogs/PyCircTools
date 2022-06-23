@@ -4,7 +4,7 @@ from CTools.Exceptions.CircuitToolsExceptions import NotTruthValue
 
 class Mux8to1:
     """
-    8 to 1 Multiplexeer. Takes three bits as Set input.
+    8 to 1 Multiplexer. Takes three bits as Set input.
     """
     def __init__(self):
         """
