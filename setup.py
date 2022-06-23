@@ -7,7 +7,7 @@ desc = (this_directory / "README.md").read_text()
 setup(
     name='PyCircTools',
     packages=find_packages(include=['Exceptions', 'LogicGates']),
-    version='0.0.3',
+    version='0.0.1',
     description='CTools, a python circuit library.',
     author='LovetheFrogs',
     license='GPL-3.0',
