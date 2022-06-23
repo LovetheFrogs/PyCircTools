@@ -46,7 +46,7 @@ class Mux4to1:
 
     def get_output(self):
         """
-        Method get_output gets the output of the 2 to 1 Multiplexer.
+        Method get_output gets the output of the 4 to 1 Multiplexer.
 
         :return: Value of the output.
         :rtype: bool
