@@ -20,7 +20,7 @@ class Mux2to1:
 
         :param num: Number of the input you want to get, either 0 or 1.
         :type num: int
-        :raises NonExistingInput: raised when a Multiplexer/Demultiplexer doesn't have the input asked for.
+        :raises NonExistingInput: Raised when a Multiplexer/Demultiplexer doesn't have the input asked for.
         :return: Value of the desired input (num).
         :rtype: bool
         """
