@@ -80,6 +80,7 @@ class Mux2to1:
             raise NotTruthValue
 
         self.set = value
+        self.output = self.__calculate_output()
         return self
 
     def __calculate_output(self):
@@ -89,4 +90,4 @@ class Mux2to1:
         :return: Value of the output signal.
         :rtype: bool
         """
-        return (self.input[0] and not(self.set)) or (self.input[1] and self.set)
+        return (self.input[0] and not self.set) or (self.input[1] and self.set)
