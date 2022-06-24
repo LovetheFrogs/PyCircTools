@@ -54,6 +54,9 @@ modules.
     + [Logic gates Exceptions](#logic-gates-exceptions)
         * [NonPositiveInput](#non-positive-input)
         * [NotAnInput](#not-an-input)
+    + [Multiplexer](#multiplexers-exceptions)
+        * [NonExistingInput](#non-existing-input)
+        * [NonExistingControlSignal](#non-existing-control-signal)
 - [About](#about)
 
 <a name="installing-CTools"></a>
@@ -610,7 +613,20 @@ of inputs of any logic gate.
 
 NotAnInput is raised when the selected input does not exist.
 
+<a name="muliplexers-exceptions"></a>
+### Multiplexers Exceptions
 
+These are the exceptions used in the PyCircTools.Multiplexers module. An explanation of each one follows below.
+
+<a name="non-existing-input"></a>
+#### NonExistingInput
+
+NonExistingInput is raised when a Multiplexer/Demultiplexer doesn't have the input asked for. It can take an int as an input. This input _'requestedInput'_ is the number which caused the exception.
+
+<a name="non-existing-control-signal"></a>
+#### NonExistingControlSignal
+
+NonExistingControlSignal is raised when a Multiplexer/Demultiplexer doesn't have the set control signal asked for.
 
 <a name="about"></a>
 ## About
