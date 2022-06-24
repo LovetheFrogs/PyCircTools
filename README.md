@@ -633,4 +633,4 @@ NonExistingControlSignal is raised when a Multiplexer/Demultiplexer doesn't have
 
 PyCircTools is software developed by LovetheFrogs and licensed under GPL-3.0 license.
 
-You can donate to me on paypal at [this link](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/lovethefrogs?country.x=ES&locale.x=es_ES) to support the development of my future projects or invite me to a coffee :).
+You can donate to me on paypal at [this link](https://paypal.me/lovethefrogs?country.x=ES&locale.x=es_ES) to support the development of my future projects or invite me to a coffee :).
