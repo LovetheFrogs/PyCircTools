@@ -36,7 +36,7 @@ class SRLatch:
 
     def set_enable(self, value):
         self.enable = value
-        self.__calculate_output()self.__calculate_output()
+        self.__calculate_output()
         return self
 
     def __calculate_output(self):
