@@ -1,4 +1,4 @@
-from CTools.LogicGates import Not
+from PyCircTools.LogicGates import Not
 
 
 def test_not_gate():

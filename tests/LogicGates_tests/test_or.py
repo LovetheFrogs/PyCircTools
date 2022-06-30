@@ -1,4 +1,4 @@
-from CTools.LogicGates import Or
+from PyCircTools.LogicGates import Or
 
 
 def test_or_gate():

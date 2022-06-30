@@ -1,7 +1,7 @@
 import itertools
 
-from CTools import NotTruthValue, NonExistingControlSignal, NonExistingInput
-from CTools.Multiplexers import Mux8to1
+from PyCircTools import NotTruthValue, NonExistingControlSignal, NonExistingInput
+from PyCircTools.Multiplexers import Mux8to1
 
 
 def generate_inputs(num):

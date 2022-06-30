@@ -1,11 +1,11 @@
 """
-CTools LogicGates module Exceptions.
+PyCircTools LogicGates module Exceptions.
 """
 
 
 class LogicGateException(Exception):
     """
-    LogicGateException is the parent Exception class for all CTools.LogicGates related Exceptions
+    LogicGateException is the parent Exception class for all PyCircTools.LogicGates related Exceptions
     """
     def __init__(self, msg="Logic gate Exception."):
         self.msg = msg

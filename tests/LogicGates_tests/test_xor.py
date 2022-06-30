@@ -1,4 +1,4 @@
-from CTools.LogicGates import Xor
+from PyCircTools.LogicGates import Xor
 
 
 def test_or_gate():

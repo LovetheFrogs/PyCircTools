@@ -1,4 +1,4 @@
-from CTools.LogicGates import Nand
+from PyCircTools.LogicGates import Nand
 
 
 def test_and_gate():
