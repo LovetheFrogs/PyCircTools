@@ -1,4 +1,4 @@
-from CTools.LogicGates import And
+from PyCircTools.LogicGates import And
 
 
 def test_and_gate():

@@ -1,14 +1,14 @@
-from CTools.Exceptions.CircuitToolsExceptions import NotTruthValue
-from CTools.Exceptions.LogicGateExceptions import NonPositiveInput, NotAnInput
+from PyCircTools.Exceptions.CircuitToolsExceptions import NotTruthValue
+from PyCircTools.Exceptions.LogicGateExceptions import NonPositiveInput, NotAnInput
 
 
-class Nor:
+class Xor:
     """
-    Nor logic gate. Can have any number of inputs greater or equal than 1.
+    Xor logic gate. Can have any number of inputs greater or equal than 1.
     """
     def __init__(self, inputNumber=2):
         """
-        Norclass constructor method.
+        Xor class constructor method.
 
         :param inputNumber: Number of inputs for the gate. Defaults to two.
         :type inputNumber: int
@@ -96,8 +96,8 @@ class Nor:
     def __calculate_output(self):
         output = False
         for value in self.input:
-            output = output or value
-        self.output = not output
+            output = ((output and not value) or (not output and value))
+        self.output = output
         return self
 
     @staticmethod
