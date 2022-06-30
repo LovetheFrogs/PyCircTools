@@ -18,9 +18,9 @@ class SRLatch:
 
     def get_R(self):
         """
-        Method get_R gets the value of the R input.
+        Method get_R gets the value of the Reset input.
 
-        :return: Value of the gate's R input.
+        :return: Value of the latch's Reset input.
         :rtype: bool
         """
         return self.R
@@ -29,7 +29,7 @@ class SRLatch:
         """
         Method get_S gets the value of the S input.
 
-        :return: Value of the gate's S input.
+        :return: Value of the latch's Set input.
         :rtype: bool
         """
         return self.S
@@ -38,7 +38,7 @@ class SRLatch:
         """
         Method get_enable gets the value of enable input.
 
-        :return: Value of the gate's enable input.
+        :return: Value of the latch's Enable input.
         :rtype: bool
         """
         return self.enable
@@ -56,16 +56,16 @@ class SRLatch:
         """
         Method get_Qp gets the value of the Qp output.
 
-        :return: Value of the gate's Qp output.
+        :return: Value of the latch's Qp output.
         :rtype: bool
         """
         return self.Qp
 
     def set_R(self, value):
         """
-        Method set_R sets the value of the R input to the bool value.
+        Method set_R sets the value of the Reset input to the bool value.
 
-        :param value: Desired value of the gate's R input.
+        :param value: Desired value of the latch's Reset input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
@@ -78,9 +78,9 @@ class SRLatch:
 
     def set_S(self, value):
         """
-        Method set_S sets the value of the S input to the bool value.
+        Method set_S sets the value of the Set input to the bool value.
 
-        :param value: Desired value of the gate's S input.
+        :param value: Desired value of the latch's Set input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
@@ -95,7 +95,7 @@ class SRLatch:
         """
         Method set_enable sets the value of Enable to the bool value.
 
-        :param value: Desired value of the gate's Enable input.
+        :param value: Desired value of the latch's Enable input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
