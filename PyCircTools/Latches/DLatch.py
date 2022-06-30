@@ -22,11 +22,17 @@ class DLatch:
         return self.Qp
 
     def set_D(self, value):
+        if type(value) is not bool:
+            raise NotTruthValue
+
         self.D = value
         self.__calculate_output()
         return self
 
     def set_enable(self, value):
+        if type(value) is not bool:
+            raise NotTruthValue
+
         self.enable = value
         self.__calculate_output()
         return self
