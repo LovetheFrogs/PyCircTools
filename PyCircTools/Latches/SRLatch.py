@@ -4,7 +4,7 @@ from PyCircTools.LogicGates import And, Nor
 
 class SRLatch:
     """
-    SR-Latch module. Takes 3 inputs (R, S and Enable).
+    SR-Latch module. Takes 3 inputs (Reset, Set and Enable).
     """
     def __init__(self):
         """
