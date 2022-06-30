@@ -30,3 +30,5 @@ def test_SRLatch():
         pass
     else:
         errors.append("R and S test not passed!")
+
+    assert not errors, "errors occured:\n{}".format("\n".join(errors))
