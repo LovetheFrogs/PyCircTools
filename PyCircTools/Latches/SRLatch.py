@@ -1,4 +1,4 @@
-from  PyCircTools.Exceptions.CircuitToolsExceptions import NotTruthValue
+from PyCircTools.Exceptions.CircuitToolsExceptions import NotTruthValue
 from PyCircTools.LogicGates import And, Nor
 
 
