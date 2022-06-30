@@ -47,7 +47,7 @@ class SRLatch:
         """
         Method get_Q gets the value of the Q output.
 
-        :return: Value of the gate's Q output.
+        :return: Value of the latch's Q output.
         :rtype: bool
         """
         return self.Q
