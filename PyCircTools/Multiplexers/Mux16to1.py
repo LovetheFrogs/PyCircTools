@@ -1,5 +1,5 @@
-from CTools.Exceptions.MultiplexersExceptions import NonExistingInput, NonExistingControlSignal
-from CTools.Exceptions.CircuitToolsExceptions import NotTruthValue
+from PyCircTools.Exceptions.MultiplexersExceptions import NonExistingInput, NonExistingControlSignal
+from PyCircTools.Exceptions.CircuitToolsExceptions import NotTruthValue
 
 
 class Mux16to1:

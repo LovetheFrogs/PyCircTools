@@ -1,11 +1,11 @@
 """
-General CTools exceptions.
+General PyCircTools exceptions.
 """
 
 
 class CircuitToolsException(Exception):
     """
-    Parent Exception class. All general CTools exceptions inherit from this class.
+    Parent Exception class. All general PyCircTools exceptions inherit from this class.
     """
     def __init__(self, msg="CircuitTools Exception."):
         self.msg = msg
