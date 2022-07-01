@@ -14,7 +14,7 @@ class SRLatch:
         self.S = False
         self.enable = False
         self.Q = False
-        self.Qp = False
+        self.Qp = True
 
     def get_R(self):
         """
@@ -110,13 +110,13 @@ class SRLatch:
         """
         Method __calculate_output calculates the value of both the Q and the Qp signal.
         """
-        and_r = And().set_input(0, self.R).set_input(1, self.enable)
-        and_s = And().set_input(0, self.S).set_input(1, self.enable)
+        if not self.enable:
+            return self
+        else:
+            and_r = And().set_input(0, self.R).set_input(1, self.enable)
+            and_s = And().set_input(0, self.S).set_input(1, self.enable)
 
-        nor_r = Nor().set_input(0, and_r.get_output()).set_input(1, self.Qp)
-        nor_s = Nor().set_input(0, and_s.get_output()).set_input(1, self.Q)
+            self.Qp = Nor().set_input(0, and_s.get_output()).set_input(1, self.Q).get_output()
+            self.Q = Nor().set_input(0, and_r.get_output()).set_input(1, self.Qp).get_output()
 
-        self.Q = nor_r.get_output()
-        self.Qp = nor_s.get_output()
-
-        return self
+            return self
