@@ -11,9 +11,8 @@ def test_SRLatch():
     if latch.set_R(True).get_Q():
         errors.append("Operation when enable is False!")
 
-    if not latch.set_enable(True).set_R(False).get_Q() and not latch.get_Qp():
-        pass
-    else:
+    previous = [latch.get_Q(), latch.get_Qp()]
+    if latch.set_enable(True).set_R(False).get_Q() != previous[0] and latch.get_Qp() != previous[1]:
         errors.append("Set and all False test not passed!")
 
     if not latch.set_R(True).get_Q() and latch.get_Qp():
@@ -25,10 +24,5 @@ def test_SRLatch():
         pass
     else:
         errors.append("not R and S test not passed!")
-
-    if latch.set_R(True).get_Q() and latch.get_Qp():
-        pass
-    else:
-        errors.append("R and S test not passed!")
 
     assert not errors, "errors occured:\n{}".format("\n".join(errors))
