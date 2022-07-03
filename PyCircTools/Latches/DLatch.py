@@ -13,7 +13,7 @@ class DLatch:
         self.D = False
         self.enable = False
         self.Q = False
-        self.Qp = False
+        self.Qp = True
 
     def get_D(self):
         """
