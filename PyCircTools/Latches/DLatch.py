@@ -85,14 +85,18 @@ class DLatch:
         """
         Method __calculate_output calculates the output of both the Q and Qp signals.
         """
-        and_d = And().set_input(0, self.enable).set_input(1, self.D)
-        not_d = Not().set_input(self.D)
-        and_not_d = And().set_input(0, not_d.get_output()).set_input(1, self.enable)
+        if not self.enable:
+            return self
+        else:
+            and_d = And().set_input(0, self.enable).set_input(1, self.D)
+            not_d = Not().set_input(self.D)
+            and_not_d = And().set_input(0, not_d.get_output()).set_input(1, self.enable)
 
-        nor_d = Nor().set_input(0, and_d.get_output()).set_input(1, self.Q)
-        nor_not_d = Nor().set_input(0, and_not_d.get_output()).set_input(1, self.Qp)
-
-        self.Q = nor_not_d.get_output()
-        self.Qp = nor_d.get_output()
+            if not self.D:
+                self.Q = Nor().set_input(0, and_not_d.get_output()).set_input(1, self.Qp).get_output()
+                self.Qp = Nor().set_input(0, and_d.get_output()).set_input(1, self.Q).get_output()
+            else:
+                self.Qp = Nor().set_input(0, and_d.get_output()).set_input(1, self.Q).get_output()
+                self.Q = Nor().set_input(0, and_not_d.get_output()).set_input(1, self.Qp).get_output()
 
         return self
