@@ -2,16 +2,16 @@ from PyCircTools.Exceptions.CircuitToolsExceptions import NotTruthValue
 from PyCircTools.LogicGates import And, Nor, Not
 
 
-class DLatch:
+class DFlipflop:
     """
-    D-Latch module. Takes 2 inputs (Data and enable).
+    D-Flipflop module. Takes 2 inputs (Data and Clock).
     """
     def __init__(self):
         """
-        DLatch class constructor. Initialises all inputs and outputs to False, except Qp.
+        DFlipflop class constructor. Initialises all inputs and outputs to False, except Qp.
         """
         self.D = False
-        self.enable = False
+        self.clock = False
         self.Q = False
         self.Qp = True
 
@@ -26,12 +26,12 @@ class DLatch:
 
     def get_enable(self):
         """
-        Method get_enable gets the value of the enable input.
+        Method get_enable gets the value of the clock input.
 
         :return: Value of the latch's Enable input.
         :rtype: bool
         """
-        return self.enable
+        return self.clock
 
     def get_Q(self):
         """
@@ -68,16 +68,16 @@ class DLatch:
 
     def set_enable(self, value):
         """
-        Method set_enable sets the value of Enable to the bool value.
+        Method set_enable sets the value of Clock to the bool value.
 
-        :param value: Desired value of the latch's Enable input.
+        :param value: Desired value of the latch's Clock input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
         if type(value) is not bool:
             raise NotTruthValue
 
-        self.enable = value
+        self.clock = value
         self.__calculate_output()
         return self
 
@@ -85,12 +85,12 @@ class DLatch:
         """
         Method __calculate_output calculates the output of both the Q and Qp signals.
         """
-        if not self.enable:
+        if not self.clock:
             return self
         else:
-            and_d = And().set_input(0, self.enable).set_input(1, self.D)
+            and_d = And().set_input(0, self.clock).set_input(1, self.D)
             not_d = Not().set_input(self.D)
-            and_not_d = And().set_input(0, not_d.get_output()).set_input(1, self.enable)
+            and_not_d = And().set_input(0, not_d.get_output()).set_input(1, self.clock)
 
             if not self.D:
                 self.Q = Nor().set_input(0, and_not_d.get_output()).set_input(1, self.Qp).get_output()
