@@ -2,7 +2,7 @@ from PyCircTools.Exceptions.CircuitToolsExceptions import NotTruthValue
 from PyCircTools.LogicGates import And, Nor
 
 
-class SRLatch:
+class SRFlipflop:
     """
     SR-Flipflop module. Takes 3 inputs (Reset, Set and Clock).
     """
