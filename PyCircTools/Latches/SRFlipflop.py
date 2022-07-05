@@ -20,7 +20,7 @@ class SRFlipflop:
         """
         Method get_R gets the value of the Reset input.
 
-        :return: Value of the latch's Reset input.
+        :return: Value of the flip-flop's Reset input.
         :rtype: bool
         """
         return self.R
@@ -29,7 +29,7 @@ class SRFlipflop:
         """
         Method get_S gets the value of the S input.
 
-        :return: Value of the latch's Set input.
+        :return: Value of the flip-flop's Set input.
         :rtype: bool
         """
         return self.S
@@ -38,7 +38,7 @@ class SRFlipflop:
         """
         Method get_clock gets the value of clock input.
 
-        :return: Value of the latch's Clock input.
+        :return: Value of the flip-flop's Clock input.
         :rtype: bool
         """
         return self.clock
@@ -47,7 +47,7 @@ class SRFlipflop:
         """
         Method get_Q gets the value of the Q output.
 
-        :return: Value of the latch's Q output.
+        :return: Value of the flip-flop's Q output.
         :rtype: bool
         """
         return self.Q
@@ -56,7 +56,7 @@ class SRFlipflop:
         """
         Method get_Qp gets the value of the Qp output.
 
-        :return: Value of the latch's Qp output.
+        :return: Value of the flip-flop's Qp output.
         :rtype: bool
         """
         return self.Qp
@@ -65,7 +65,7 @@ class SRFlipflop:
         """
         Method set_R sets the value of the Reset input to the bool value.
 
-        :param value: Desired value of the latch's Reset input.
+        :param value: Desired value of the flip-flop's Reset input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
@@ -80,7 +80,7 @@ class SRFlipflop:
         """
         Method set_S sets the value of the Set input to the bool value.
 
-        :param value: Desired value of the latch's Set input.
+        :param value: Desired value of the flip-flop's Set input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
@@ -95,7 +95,7 @@ class SRFlipflop:
         """
         Method set_clock sets the value of Clock to the bool value.
 
-        :param value: Desired value of the latch's Clock input.
+        :param value: Desired value of the flip-flop's Clock input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
