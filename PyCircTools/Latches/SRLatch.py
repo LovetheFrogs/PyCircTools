@@ -8,7 +8,7 @@ class SRLatch:
     """
     def __init__(self):
         """
-        SRLatch class constructor. Initialises all inputs and outputs to False.
+        SRLatch class constructor. Initialises all inputs and outputs to False, except Qp.
         """
         self.R = False
         self.S = False
