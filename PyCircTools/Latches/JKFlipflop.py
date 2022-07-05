@@ -113,8 +113,8 @@ class JKFlipflop:
         if not self.clock:
             return self
         else:
-            and_k = And().set_input(0, self.K).set_input(1, self.clock)
-            and_j = And().set_input(0, self.J).set_input(1, self.clock)
+            and_k = And(3).set_input(0, self.K).set_input(1, self.clock).set_input(2, self.Q)
+            and_j = And(3).set_input(0, self.J).set_input(1, self.clock).set_input(2, self.Qp)
 
             self.Q = Nor().set_input(0, and_k.get_output()).set_input(0, self.Qp).get_output()
             self.Qp = Nor().set_input(0, and_j.get_ouput()).set_input(1, self.Q)
