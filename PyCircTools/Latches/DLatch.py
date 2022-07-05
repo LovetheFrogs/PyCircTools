@@ -8,7 +8,7 @@ class DLatch:
     """
     def __init__(self):
         """
-        DLatch class constructor. Initialises all inputs and outputs to False.
+        DLatch class constructor. Initialises all inputs and outputs to False, except Qp.
         """
         self.D = False
         self.enable = False
