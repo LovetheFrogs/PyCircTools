@@ -2,7 +2,7 @@ from PyCircTools.Exceptions.CircuitToolsExceptions import NotTruthValue
 from PyCircTools.LogicGates import And, Nor, Not
 
 
-class DLatch:
+class DFlipflop:
     """
     D-Flipflop module. Takes 2 inputs (Data and Clock).
     """
