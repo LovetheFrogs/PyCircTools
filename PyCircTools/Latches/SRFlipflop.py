@@ -2,17 +2,17 @@ from PyCircTools.Exceptions.CircuitToolsExceptions import NotTruthValue
 from PyCircTools.LogicGates import And, Nor
 
 
-class SRLatch:
+class SRFlipflop:
     """
-    SR-Latch module. Takes 3 inputs (Reset, Set and Enable).
+    SR-Flipflop module. Takes 3 inputs (Reset, Set and Clock).
     """
     def __init__(self):
         """
-        SRLatch class constructor. Initialises all inputs and outputs to False, except Qp.
+        SRFlipflop class constructor. Initialises all inputs and outputs to False, except Qp.
         """
         self.R = False
         self.S = False
-        self.enable = False
+        self.clock = False
         self.Q = False
         self.Qp = True
 
@@ -34,14 +34,14 @@ class SRLatch:
         """
         return self.S
 
-    def get_enable(self):
+    def get_clock(self):
         """
-        Method get_enable gets the value of enable input.
+        Method get_clock gets the value of clock input.
 
-        :return: Value of the latch's Enable input.
+        :return: Value of the latch's Clock input.
         :rtype: bool
         """
-        return self.enable
+        return self.clock
 
     def get_Q(self):
         """
@@ -91,18 +91,18 @@ class SRLatch:
         self.__calculate_output()
         return self
 
-    def set_enable(self, value):
+    def set_clock(self, value):
         """
-        Method set_enable sets the value of Enable to the bool value.
+        Method set_clock sets the value of Clock to the bool value.
 
-        :param value: Desired value of the latch's Enable input.
+        :param value: Desired value of the latch's Clock input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
         if type(value) is not bool:
             raise NotTruthValue
 
-        self.enable = value
+        self.clock = value
         self.__calculate_output()
         return self
 
@@ -110,11 +110,11 @@ class SRLatch:
         """
         Method __calculate_output calculates the value of both the Q and the Qp signal.
         """
-        if not self.enable:
+        if not self.clock:
             return self
         else:
-            and_r = And().set_input(0, self.R).set_input(1, self.enable)
-            and_s = And().set_input(0, self.S).set_input(1, self.enable)
+            and_r = And().set_input(0, self.R).set_input(1, self.clock)
+            and_s = And().set_input(0, self.S).set_input(1, self.clock)
 
             self.Qp = Nor().set_input(0, and_s.get_output()).set_input(1, self.Q).get_output()
             self.Q = Nor().set_input(0, and_r.get_output()).set_input(1, self.Qp).get_output()
