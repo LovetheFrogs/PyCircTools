@@ -1,5 +1,5 @@
-from CTools import NotTruthValue, NonExistingControlSignal, NonExistingInput
-from CTools.Multiplexers import Mux4to1
+from PyCircTools import NotTruthValue, NonExistingControlSignal, NonExistingInput
+from PyCircTools.Multiplexers import Mux4to1
 
 
 def to_bool(value):

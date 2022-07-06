@@ -1,14 +1,14 @@
-from CTools.Exceptions.CircuitToolsExceptions import NotTruthValue
-from CTools.Exceptions.LogicGateExceptions import NonPositiveInput, NotAnInput
+from PyCircTools.Exceptions.CircuitToolsExceptions import NotTruthValue
+from PyCircTools.Exceptions.LogicGateExceptions import NonPositiveInput, NotAnInput
 
 
-class Or:
+class Nand:
     """
-    Or logic gate. Can have any number of inputs greater or equal than 1.
+    Nand logic gate. Can have any number of inputs greater or equal than 1.
     """
     def __init__(self, inputNumber=2):
         """
-        Or class constructor method.
+        Nand class constructor method.
 
         :param inputNumber: Number of inputs for the gate. Defaults to two.
         :type inputNumber: int
@@ -75,6 +75,13 @@ class Or:
         self.__calculate_output()
         return self
 
+    def __calculate_output(self):
+        output = True
+        for value in self.input:
+            output = output and value
+        self.output = not output
+        return self
+
     def add_input(self):
         """
         Method add_input adds a new input to a logic gate.
@@ -89,17 +96,10 @@ class Or:
         Removes the last input of a logic gate.
         """
         self.input.pop()
-        self.numOfInputs -= 1
         self.__calculate_output()
-        return self
-
-    def __calculate_output(self):
-        output = False
-        for value in self.input:
-            output = output or value
-        self.output = output
+        self.numOfInputs -= 1
         return self
 
     @staticmethod
-    def __create_input(number):
-        return [False] * number
+    def __create_input(num):
+        return [False] * num
