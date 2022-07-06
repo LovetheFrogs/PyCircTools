@@ -146,7 +146,7 @@ The **D flip-flop** is similar to a D latch. The difference is that it works wit
 <a name="jk-flipflop"></a>
 ## JK Flip-flop
 
-The **JK Flip-flop** s the modified version of SR flip-flop. It operates with only positive clock transitions or negative clock transitions.
+The **JK Flip-flop** is the modified version of SR flip-flop. It operates with only positive clock transitions or negative clock transitions.
 
 <a name="jk-attributes"></a>
 ### Attributes
@@ -201,3 +201,53 @@ Sets the clock to the truth value _'value'_, which is passed as a parameter.
 - **__calculate_output():**
 Private method which calculates both the Q and Qp output of the flip-flop.
 
+<a name="t-flipflop"></a>
+## T Flip-flop
+
+The **T Flip-flop** is the simplified version of JK flip-flop. It is obtained by connecting the same input ‘T’ to both inputs of JK flip-flop. 
+
+<a name="t-attributes"></a>
+### Attributes
+
+The T flip-flop has the following attributes.
+
+| Name | Description | Type |
+| - | - | - |
+| **T** | T input signal | bool |
+| **clock** | Enables the latch | bool |
+| **Q** | Output of the latch | bool |
+| **Qp** | Complementary of the latch's output | bool |
+
+<a name="t-constructor"></a>
+### Constructor
+
+The constructor of the T flip-flop has the following format: <br>
+
+<p align="center" style="bold" ><b>TFlipflop()</b></p>
+Which doesn't take any parameters and returns a T flip-flop with its inputs and outputs set to False.
+
+<a name="t-methods"></a>
+### Methods
+
+The T flip-flop has the following methods:
+
+- **get_T():**
+Gets the value of the T input signal. It returns a bool containing the requested value.
+
+- **get_clock():**
+Gets the value of the clock. It returns a bool containing the requested value.
+
+- **get_Q():**
+Gets the value of the Q output signal. It returns a bool containing the requested value.
+
+- **get_Qp():**
+Gets the value of the Qp output signal. It returns a bool containing the requested value.
+
+- **set_T(bool _value_):**
+Sets the T signal of the flip-flop to the truth value _'value'_, which is passed as a parameter.
+
+- **set_clock(bool _value_):**
+Sets the clock to the truth value _'value'_, which is passed as a parameter.
+
+- **__calculate_output():**
+Private method which calculates both the Q and Qp output of the flip-flop.
