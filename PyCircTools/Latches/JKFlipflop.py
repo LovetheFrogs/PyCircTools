@@ -1,38 +1,38 @@
-from PyCircTools.Exceptions.CircuitToolsExceptions import NotTruthValue
-from PyCircTools.LogicGates import And, Nor
+from PyCircTools import NotTruthValue
+from PyCircTools.LogicGates import And, Or
 
 
-class SRFlipflop:
+class JKFlipflop:
     """
-    SR-Flipflop module. Takes 3 inputs (Reset, Set and Clock).
+    JK-Flipflop module. Takes 3 inputs (J, K and Clock).
     """
     def __init__(self):
         """
-        SRFlipflop class constructor. Initialises all inputs and outputs to False, except Qp.
+        JKFlipflop class constructor. Initialises all inputs and outputs to False, except Qp.
         """
-        self.R = False
-        self.S = False
+        self.K = False
+        self.J = False
         self.clock = False
         self.Q = False
-        self.Qp = True
+        self.Qp = False
 
-    def get_R(self):
+    def get_K(self):
         """
-        Method get_R gets the value of the Reset input.
+        Method get_K gets the value of the K input.
 
-        :return: Value of the flip-flop's Reset input.
+        :return: Value of the flip-flop's K input.
         :rtype: bool
         """
-        return self.R
+        return self.K
 
-    def get_S(self):
+    def get_J(self):
         """
-        Method get_S gets the value of the S input.
+        Method get_J gets the value of the J input.
 
-        :return: Value of the flip-flop's Set input.
+        :return: Value of the flip-flop J input.
         :rtype: bool
         """
-        return self.S
+        return self.J
 
     def get_clock(self):
         """
@@ -61,33 +61,33 @@ class SRFlipflop:
         """
         return self.Qp
 
-    def set_R(self, value):
+    def set_K(self, value):
         """
-        Method set_R sets the value of the Reset input to the bool value.
+        Method set_K sets the value of the K input to the bool value.
 
-        :param value: Desired value of the flip-flop's Reset input.
+        :param value: Desired value of the flip-flop's K input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
         if type(value) is not bool:
             raise NotTruthValue
 
-        self.R = value
+        self.K = value
         self.__calculate_output()
         return self
 
-    def set_S(self, value):
+    def set_J(self, value):
         """
-        Method set_S sets the value of the Set input to the bool value.
+        Method set_J sets the value of the J input to the bool value.
 
-        :param value: Desired value of the flip-flop's Set input.
+        :param value: Desired value of the flip-flop's J input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
         if type(value) is not bool:
             raise NotTruthValue
 
-        self.S = value
+        self.J = value
         self.__calculate_output()
         return self
 
@@ -113,10 +113,13 @@ class SRFlipflop:
         if not self.clock:
             return self
         else:
-            and_r = And().set_input(0, self.R).set_input(1, self.clock)
-            and_s = And().set_input(0, self.S).set_input(1, self.clock)
+            q_aux = self.Q
+            qp_aux = self.Qp
 
-            self.Qp = Nor().set_input(0, and_s.get_output()).set_input(1, self.Q).get_output()
-            self.Q = Nor().set_input(0, and_r.get_output()).set_input(1, self.Qp).get_output()
+            and1 = And(3).set_input(0, self.J).set_input(1, qp_aux).set_input(2, self.clock)
+            and2 = And(3).set_input(0, not self.K).set_input(1, q_aux).set_input(2, self.clock)
+
+            self.Q = Or().set_input(0, and1.get_output()).set_input(1, and2.get_output()).get_output()
+            self.Qp = not self.Q
 
             return self

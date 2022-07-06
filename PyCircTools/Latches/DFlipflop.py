@@ -19,7 +19,7 @@ class DFlipflop:
         """
         Method get_D gets the value of the Data input.
 
-        :return: Value of the latch's Data input.
+        :return: Value of the flip-flop's Data input.
         :rtype: bool
         """
         return self.D
@@ -28,7 +28,7 @@ class DFlipflop:
         """
         Method get_enable gets the value of the clock input.
 
-        :return: Value of the latch's Enable input.
+        :return: Value of the flip-flop's Enable input.
         :rtype: bool
         """
         return self.clock
@@ -37,7 +37,7 @@ class DFlipflop:
         """
         Method get_Q returns the value of the Q output.
 
-        :return: Value of the latch's Q output.
+        :return: Value of the flip-flop's Q output.
         :rtype: bool
         """
         return self.Q
@@ -46,7 +46,7 @@ class DFlipflop:
         """
         Method get_Qp returns the value of the Qp output.
 
-        :return: Value of the latch's Qp output.
+        :return: Value of the flip-flop's Qp output.
         :rtype: bool
         """
         return self.Qp
@@ -55,7 +55,7 @@ class DFlipflop:
         """
         Method set_D sets the value of the Data input to the bool value.
 
-        :param value: Desired value of the latch's Data input.
+        :param value: Desired value of the flip-flop's Data input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
@@ -70,7 +70,7 @@ class DFlipflop:
         """
         Method set_enable sets the value of Clock to the bool value.
 
-        :param value: Desired value of the latch's Clock input.
+        :param value: Desired value of the flip-flop's Clock input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
