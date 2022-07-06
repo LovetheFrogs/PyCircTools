@@ -8,7 +8,7 @@ class JKFlipflop:
     """
     def __init__(self):
         """
-        JKFlipflop class constructor. Initialises all inputs and outputs to False, except Qp.
+        JKFlipflop class constructor. Initialises all inputs and outputs to False.
         """
         self.K = False
         self.J = False
