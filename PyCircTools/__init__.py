@@ -6,3 +6,4 @@ circuits using code, serving as an alternative to programs like ModelSIM.
 from PyCircTools.Exceptions import *
 from PyCircTools.LogicGates import *
 from PyCircTools.Latches import *
+from PyCircTools.Multiplexers import *
