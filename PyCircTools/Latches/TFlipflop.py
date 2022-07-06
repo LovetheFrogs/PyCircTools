@@ -1,38 +1,27 @@
-from PyCircTools import NotTruthValue
-from PyCircTools.LogicGates import And, Or
+from PyCircTools import NotTruthValue, Xor, Not
 
 
-class JKFlipflop:
+class TFlipflop:
     """
-    JK-Flipflop module. Takes 3 inputs (J, K and Clock).
+    T-Flipflop module. Takes 2 inputs (T and Clock).
     """
     def __init__(self):
         """
-        JKFlipflop class constructor. Initialises all inputs and outputs to False.
+        TFlipflop class constructor. Initialises all inputs and outputs to False.
         """
-        self.K = False
-        self.J = False
+        self.T = False
         self.clock = False
         self.Q = False
         self.Qp = False
 
-    def get_K(self):
+    def get_T(self):
         """
-        Method get_K gets the value of the K input.
+        Method get_T gets the value of the T input.
 
-        :return: Value of the flip-flop's K input.
+        :return: Value of the flip-flop's T input.
         :rtype: bool
         """
-        return self.K
-
-    def get_J(self):
-        """
-        Method get_J gets the value of the J input.
-
-        :return: Value of the flip-flop J input.
-        :rtype: bool
-        """
-        return self.J
+        return self.T
 
     def get_clock(self):
         """
@@ -61,33 +50,18 @@ class JKFlipflop:
         """
         return self.Qp
 
-    def set_K(self, value):
+    def set_T(self, value):
         """
-        Method set_K sets the value of the K input to the bool value.
+        Method set_T sets the value of the T input to the bool value.
 
-        :param value: Desired value of the flip-flop's K input.
+        :param value: Desired value of the flip-flop's T input.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
         if type(value) is not bool:
             raise NotTruthValue
 
-        self.K = value
-        self.__calculate_output()
-        return self
-
-    def set_J(self, value):
-        """
-        Method set_J sets the value of the J input to the bool value.
-
-        :param value: Desired value of the flip-flop's J input.
-        :type value: bool
-        :raises NotTruthValue: Raised when a variable type is not bool.
-        """
-        if type(value) is not bool:
-            raise NotTruthValue
-
-        self.J = value
+        self.T = value
         self.__calculate_output()
         return self
 
@@ -114,12 +88,8 @@ class JKFlipflop:
             return self
         else:
             q_aux = self.Q
-            qp_aux = self.Qp
 
-            and1 = And(3).set_input(0, self.J).set_input(1, qp_aux).set_input(2, self.clock)
-            and2 = And(3).set_input(0, not self.K).set_input(1, q_aux).set_input(2, self.clock)
-
-            self.Q = Or().set_input(0, and1.get_output()).set_input(1, and2.get_output()).get_output()
-            self.Qp = not self.Q
+            self.Q = Xor().set_input(0, self.T).set_input(1, q_aux).get_output()
+            self.Qp = Not().set_input(self.Q).get_output()
 
             return self

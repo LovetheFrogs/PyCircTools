@@ -9,3 +9,4 @@ from PyCircTools.Latches.DLatch import *
 from PyCircTools.Latches.SRFlipflop import *
 from PyCircTools.Latches.DFlipflop import *
 from PyCircTools.Latches.JKFlipflop import *
+from PyCircTools.Latches.TFlipflop import *
