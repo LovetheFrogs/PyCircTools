@@ -90,6 +90,6 @@ class TFlipflop:
             q_aux = self.Q
 
             self.Q = Xor().set_input(0, self.T).set_input(1, q_aux).get_output()
-            self.Qp = Not().set_input(self.Q)
+            self.Qp = Not().set_input(self.Q).get_output()
 
             return self
