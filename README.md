@@ -1,3 +1,12 @@
+[![Known Vulnerabilities](https://snyk.io/test/github/dwyl/hapi-auth-jwt2/badge.svg?targetFile=package.json)](https://snyk.io/test/github/LovetheFrogs/PyCircTools?targetFile=package.json)
+[![Code Climate](https://codeclimate.com/github/dwyl/esta/badges/gpa.svg)](https://codeclimate.com/github/LovetheFrogs/PyCircTools)
+![PyPI](https://img.shields.io/pypi/v/PyCircTools)
+![PyPI - Downloads](https://img.shields.io/pypi/dm/PyCircTools?color=green&label=pip%20downloads)
+![PyPI - License](https://img.shields.io/pypi/l/PyCircTools)
+![Total lines](https://img.shields.io/tokei/lines/github.com/LovetheFrogs/PyCircTools?color=green&label=total%20lines)
+[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg)](https://paypal.me/lovethefrogs?country.x=ES&locale.x=es_ES)
+[![hits](https://hits.deltapapa.io/github/LovetheFrogs/PyCircTools.svg)](https://hits.deltapapa.io)
+
 # PyCircTools
 
 PyCircTools is a python package which contains tools to build circuits using python 3. It is a work in progress, and will be updated frequently to add more
