@@ -12,6 +12,10 @@
 PyCircTools is a python package which contains tools to build circuits using python 3. It is a work in progress, and will be updated frequently to add more
 modules. 
 
+## Working on...
+
+As of the latest update, I'm working on the next one, which will include adders, shifters and so on. Including a full ALU! To get an insight on current development status, check [#53-create-operation-module](https://github.com/LovetheFrogs/PyCircTools/tree/53-create-operation-modules) branch.
+
 ## Table of contents
 
 - [1. Installing PyCircTools and importing it](#installing-CTools)
