@@ -150,6 +150,6 @@ class Adder:
             .set_input(2, And().set_input(0, self.B).set_input(1, self.carryIn).get_output())\
             .get_output()
 
-        self.output = Xor(3).set_input(0, self.A).set_input(1, self.B).set_input(2, self.carryIn)
+        self.output = Xor(3).set_input(0, self.A).set_input(1, self.B).set_input(2, self.carryIn).get_output()
 
         return self

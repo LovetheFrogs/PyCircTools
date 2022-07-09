@@ -12,18 +12,18 @@ class OperatorException(Exception):
         super().__init__(self.msg)
 
 
-class NotCorrectAdder:
+class NotCorrectAdder(OperatorException):
     """
     NotCorrectAdder is raised when a function is called and is not allowed for the instance of an adder used in.
     """
     def __init__(self, method=None, addr_class=False):
         if method is None:
-            self.msg = "Method not allowed for an instance of a " + self.__get_adder_type(addr_class)
+            self.msg = "Method not allowed for an instance of a " + get_adder_type(addr_class)
         else:
-            self.msg = "Method " + method + " not allowed for an instance of " + self.__get_adder_type(addr_class)
+            self.msg = "Method " + method + " not allowed for an instance of " + get_adder_type(addr_class)
 
 
-def __get_adder_type(addr_class):
+def get_adder_type(addr_class):
     """
     Method used to get the type of adder used.
 
