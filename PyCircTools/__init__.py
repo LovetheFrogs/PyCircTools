@@ -7,4 +7,3 @@ from PyCircTools.Exceptions import *
 from PyCircTools.LogicGates import *
 from PyCircTools.Latches import *
 from PyCircTools.Multiplexers import *
-from PyCircTools.Operators import *
