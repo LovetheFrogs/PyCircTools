@@ -32,7 +32,7 @@ def get_adder_type(addr_class):
     :return: String containing the name of the adder.
     :rtype: str
     """
-    if addr_class:
+    if not addr_class:
         return "Half-adder."
     else:
         return "Full-adder."
