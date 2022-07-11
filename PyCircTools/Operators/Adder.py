@@ -32,7 +32,7 @@ class Adder:
 
     def get_B(self):
         """
-        Method get_A gets the value of the second summand.
+        Method get_B gets the value of the second summand.
 
         :return: Value of the second summand.
         :rtype: bool
@@ -61,7 +61,7 @@ class Adder:
         """
         Method get_carryIn gets the value of the input carry. It can only be used on a Full-adder object.
 
-        :raises NotCorrectAdder: Raised when when a function is called and is not allowed for the instance of an adder used in.
+        :raises NotCorrectAdder: Raised when a function is called and is not allowed for the instance of an adder used in.
         :return: Value of the input carry.
         :rtype: bool
         """
@@ -106,7 +106,7 @@ class Adder:
 
         :param value: Desired value of the adder's input carry.
         :type value: bool
-        :raises NotCorrectAdder: Raised when when a function is called and is not allowed for the instance of an adder used in.
+        :raises NotCorrectAdder: Raised when a function is called and is not allowed for the instance of an adder used in.
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
         if not self.full:
