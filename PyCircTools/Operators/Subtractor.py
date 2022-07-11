@@ -1,16 +1,16 @@
-from PyCircTools import NotTruthValue, And, Xor, Or
+from PyCircTools import NotTruthValue, And, Xor, Not, Or
 from PyCircTools.Exceptions.OperatorsExceptions import NotCorrectAdder
 
 
-class Adder:
+class Subtractor:
     """
-    Adder module. The constructor can be used to specify whether a half-adder or a full-adder is being created.
+    Subtractor module. The constructor can be used to specify whether a half-subtractor or a full-subtractor is being created.
     """
     def __init__(self, full=False):
         """
-        Adder class constructor.
+        Subtractor class constructor.
 
-        :param full: Defaults to False. Used to specify if the type of adder used. (False -> Half-adder, True -> Full-adder).
+        :param full: Defaults to False. Used to specify if the type of subtractor used. (False -> Half-subtractor, True -> Full-subtractor).
         :type full: bool
         """
         self.A = False
@@ -23,18 +23,18 @@ class Adder:
 
     def get_A(self):
         """
-        Method get_A gets the value of the first summand.
+        Method get_A gets the value of the minuend.
 
-        :return: Value of the first summand.
+        :return: Value of the minuend.
         :rtype: bool
         """
         return self.A
 
     def get_B(self):
         """
-        Method get_B gets the value of the second summand.
+        Method get_B gets the value of the subtrahend.
 
-        :return: Value of the second summand.
+        :return: Value of the subtrahend.
         :rtype: bool
         """
         return self.B
@@ -50,7 +50,7 @@ class Adder:
 
     def get_output(self):
         """
-        Method get_output gets the value of the sum.
+        Method get_output gets the value of the subtraction.
 
         :return: Result of the sum.
         :rtype: bool
@@ -59,7 +59,7 @@ class Adder:
 
     def get_carryIn(self):
         """
-        Method get_carryIn gets the value of the input carry. It can only be used on a Full-adder object.
+        Method get_carryIn gets the value of the input carry. It can only be used on a Full-subtractor object.
 
         :raises NotCorrectAdder: Raised when a function is called and is not allowed for the instance of an adder used in.
         :return: Value of the input carry.
@@ -72,9 +72,9 @@ class Adder:
 
     def set_A(self, value):
         """
-        Method set_A sets the value of the first summand to the bool value.
+        Method set_A sets the value of the minuend to the bool value.
 
-        :param value: Desired value of the adder's first summand.
+        :param value: Desired value of the minuend.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
@@ -87,9 +87,9 @@ class Adder:
 
     def set_B(self, value):
         """
-        Method set_B sets the value of the second summand to the bool value.
+        Method set_B sets the value of the subtrahend to the bool value.
 
-        :param value: Desired value of the adder's second summand.
+        :param value: Desired value of the subtrahend.
         :type value: bool
         :raises NotTruthValue: Raised when a variable type is not bool.
         """
@@ -104,7 +104,7 @@ class Adder:
         """
         Method set_carryIn sets the value of the carry input to the bool value.
 
-        :param value: Desired value of the adder's input carry.
+        :param value: Desired value of the subtractor's input carry.
         :type value: bool
         :raises NotCorrectAdder: Raised when a function is called and is not allowed for the instance of an adder used in.
         :raises NotTruthValue: Raised when a variable type is not bool.
@@ -121,7 +121,7 @@ class Adder:
 
     def convert(self):
         """
-        Method convert is used to transform a full-adder into a half-adder and vice-versa.
+        Method convert is used to transform a full-subtractor into a half-subtractor and vice-versa.
         """
         if not self.full:
             self.full = not self.full
@@ -136,20 +136,23 @@ class Adder:
 
     def _calculate_output(self):
         """
-        Method __calculate_output is a protected method which calculates the value of both carryOut and output signals.
-        It is used for both full and half adders.
+        Method _calculate_output is a protected method which calculates the value of both carryOut and output signals.
+        It is used for both full and half subtractors.
         """
-        if not self.full:
-            self.carryOut = And().set_input(0, self.A).set_input(1, self.B).get_output()
-            self.output = Xor().set_input(0, self.A).set_input(1, self.B).get_output()
+        borrow = And().set_input(0, Not().set_input(self.A).get_output()).set_input(1, self.B).get_output()
+        difference = Xor().set_input(0, self.A).set_input(1, self.B).get_output()
 
+        if not self.full:
+            self.carryOut = borrow
+            self.output = difference
             return self
 
-        self.carryOut = Or(3).set_input(0, And().set_input(0, self.A).set_input(1, self.B).get_output())\
-            .set_input(1, And().set_input(0, self.A).set_input(1, self.carryIn).get_output())\
-            .set_input(2, And().set_input(0, self.B).set_input(1, self.carryIn).get_output())\
-            .get_output()
+        self.output = Xor().set_input(0, difference).set_input(1, self.carryIn).get_output()
 
-        self.output = Xor(3).set_input(0, self.A).set_input(1, self.B).set_input(2, self.carryIn).get_output()
+        self.carryOut = Or().set_input(0,
+                                       And().set_input(0, self.carryIn).set_input(1,
+                                                                                  Not().set_input(difference)
+                                                                                  .get_output()).get_output())\
+            .set_input(1, borrow).get_output()
 
         return self
