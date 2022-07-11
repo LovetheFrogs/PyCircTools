@@ -82,7 +82,7 @@ class Adder:
             raise NotTruthValue
 
         self.A = value
-        self.__calculate_output()
+        self._calculate_output()
         return self
 
     def set_B(self, value):
@@ -97,7 +97,7 @@ class Adder:
             raise NotTruthValue
 
         self.B = value
-        self.__calculate_output()
+        self._calculate_output()
         return self
 
     def set_carryIn(self, value):
@@ -116,7 +116,7 @@ class Adder:
             raise NotTruthValue
 
         self.carryIn = value
-        self.__calculate_output()
+        self._calculate_output()
         return self
 
     def convert(self):
@@ -126,17 +126,17 @@ class Adder:
         if not self.full:
             self.full = not self.full
             self.carryIn = False
-            self.__calculate_output()
+            self._calculate_output()
         else:
             self.full = not self.full
             self.__delattr__(self.carryIn)
-            self.__calculate_output()
+            self._calculate_output()
 
         return self
 
-    def __calculate_output(self):
+    def _calculate_output(self):
         """
-        Method __calculate_output is a private method which calculates the value of both carryOut and output signals.
+        Method __calculate_output is a protected method which calculates the value of both carryOut and output signals.
         It is used for both full and half adders.
         """
         if not self.full:
