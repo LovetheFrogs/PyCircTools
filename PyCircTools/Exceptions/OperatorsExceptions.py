@@ -23,6 +23,24 @@ class NotCorrectAdder(OperatorException):
             self.msg = "Method " + method + " not allowed for an instance of " + get_adder_type(addr_class)
 
 
+class NotControlList(OperatorException):
+    """
+    NotControlList is raised when a list of operation codes is not of type bool or is not a list at all.
+    """
+    def __init__(self, msg="Operation code is not a list or its contents are not of type bool."):
+        self.msg = msg
+        super().__init__(self.msg)
+
+
+class WrongSize(OperatorException):
+    """
+    WrongSize is raised when the list of operation codes does not have the required size.
+    """
+    def __init__(self, curr_size, req_size):
+        self.msg = "List of size " + str(curr_size) + ". Needs to be of size " + str(req_size) + "!"
+        super().__init__(self.msg)
+
+
 def get_adder_type(addr_class):
     """
     Method used to get the type of adder used.
