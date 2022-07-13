@@ -89,6 +89,12 @@ class Alu:
         return self
 
     def set_B(self, value):
+        """Sets the value of the B input signal.
+
+        :param value: Value of the B signal.
+        :type value: bool
+        :raises NotTruthValue: Raised when value's type is not bool.
+        """
         if type(value) is not bool:
             raise NotTruthValue
 
