@@ -62,4 +62,4 @@ To read the documentation for this module, [click this link](https://github.com/
 <a name="about"></a>
 ## About
 
-PyCircTools is software developed by LovetheFrogs and licensed under GPL-3.0 license.
+PyCircTools is software developed by LovetheFrogs and licensed under GPL-3.0 license. You can support the project and me by donating via PayPal or on [ko-fi.](https://ko-fi.com/E1E4DPZHG)
