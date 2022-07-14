@@ -120,7 +120,7 @@ class And:
         for value in self.input:
             output = output and value
         self.output = output
-        return self
+       
 
     def add_input(self):
         """
@@ -141,7 +141,7 @@ class And:
             if index > self.numOfInputs-1 or index < 0:
                 raise NotAnInput
             self.input.pop(index)
-            
+
         self.numOfInputs -= 1
         self.__calculate_output()
         return self

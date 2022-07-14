@@ -118,7 +118,7 @@ class Nand:
         for value in self.input:
             output = output and value
         self.output = not output
-        return self
+
 
     def add_input(self):
         """

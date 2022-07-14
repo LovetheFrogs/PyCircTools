@@ -140,7 +140,6 @@ class Nor:
         for value in self.input:
             output = output or value
         self.output = not output
-        return self
 
     @staticmethod
     def __create_input(number):

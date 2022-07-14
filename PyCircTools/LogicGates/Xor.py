@@ -140,7 +140,6 @@ class Xor:
         for value in self.input:
             output = ((output and not value) or (not output and value))
         self.output = output
-        return self
 
     @staticmethod
     def __create_input(number):
