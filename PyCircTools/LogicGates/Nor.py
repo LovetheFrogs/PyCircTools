@@ -90,9 +90,9 @@ class Nor:
         self.__calculate_output()
         return self
     
-    def set_input(self, num, value):
+    def __setitem__(self,__num: int,__value: bool) -> None:
         """
-        Method set_input sets a certain input to the desired value, either True or False.
+        Method that overloads [] operator to assign a certain input to the desired value, either True or False.
 
         :param num: Number of the input selected.
         :type num: int
@@ -101,13 +101,13 @@ class Nor:
         :raises NotAnInput: Raised when the selected input does not exist.
         :raises NotTruthValue: Raised when value's type is not bool.
         """
-        if num >= self.numOfInputs:
+        if __num >= self.numOfInputs:
             raise NotAnInput
 
-        if type(value) is not bool:
+        if type(__value) is not bool:
             raise NotTruthValue
 
-        self.input[num] = value
+        self.input[__num] = __value
         self.__calculate_output()
         return self
 
