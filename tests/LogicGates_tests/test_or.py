@@ -3,7 +3,7 @@ from PyCircTools.LogicGates import Or
 
 def test_or_gate():
     errors = []
-    orGate = Or.Or()
+    orGate = Or()
 
     if orGate.get_output():
         errors.append("False and False not passed!")
@@ -20,7 +20,7 @@ def test_or_gate():
     if not orGate.get_numOfInputs() == 3:
         errors.append("Input adding not passed!")
 
-    orGate2 = Or.Or(3)
+    orGate2 = Or(3)
     if not orGate2.get_numOfInputs() == 3:
         errors.append("Multiple inputs when building not passed!")
 
