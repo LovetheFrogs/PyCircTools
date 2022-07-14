@@ -131,11 +131,17 @@ class And:
         self.output = False
         return self
 
-    def remove_input(self):
+    def remove_input(self, index=None):
         """
         Removes the last input of a logic gate.
         """
-        self.input.pop()
+        if index == None:
+            self.input.pop()
+        else:
+            if index > self.numOfInputs-1 or index < 0:
+                raise NotAnInput
+            self.input.pop(index)
+            
         self.numOfInputs -= 1
         self.__calculate_output()
         return self
