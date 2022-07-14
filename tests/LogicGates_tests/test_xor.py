@@ -5,7 +5,7 @@ def test_or_gate():
     xorGate = Xor()
     xorGate_overload = Xor()
 
-    assert (bool)(xorGate.get_output()), ("False and False not passed!")
+    assert not (bool)(xorGate.get_output()), ("False and False not passed!")
 
     xorGate.set_input(0, True)
     assert (bool)(xorGate.get_output()),("True and False not passed!")

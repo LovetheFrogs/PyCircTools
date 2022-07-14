@@ -5,7 +5,7 @@ def test_or_gate():
     norGate = Nor()
     norGate_overload = Nor()
 
-    assert (bool)(norGate.get_output()), ("False and False not passed!")
+    assert not (bool)(norGate.get_output()), ("False and False not passed!")
 
     norGate.set_input(0, True)
     assert not (bool)(norGate.get_output()),("True and False not passed!")
