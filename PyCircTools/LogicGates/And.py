@@ -35,6 +35,21 @@ class And:
             raise NotAnInput
 
         return self.input[num]
+    
+    def __getitem__(self, __num: int) -> bool:
+        """
+        Method overload to use [] operator to get the value of input[num].
+
+        :param num: Position of the input you want to get the value of.
+        :type num: int
+        :raises NotAnInput: Raised when the selected input does not exist.
+        :return: Returns the value of the input num.
+        :rtype: bool
+        """
+        if __num >= self.numOfInputs:
+            raise NotAnInput
+        
+        return self.input[__num]
 
     def get_output(self):
         """
@@ -72,6 +87,27 @@ class And:
             raise NotTruthValue
 
         self.input[num] = value
+        self.__calculate_output()
+        return self
+    
+    def __setitem__(self,__num: int,__value: bool) -> None:
+        """
+        Method that overloads [] operator to assign a certain input to the desired value, either True or False.
+
+        :param num: Number of the input selected.
+        :type num: int
+        :param value: Desired value of the input.
+        :type value: bool
+        :raises NotAnInput: Raised when the selected input does not exist.
+        :raises NotTruthValue: Raised when value's type is not bool.
+        """
+        if __num >= self.numOfInputs:
+            raise NotAnInput
+
+        if type(__value) is not bool:
+            raise NotTruthValue
+
+        self.input[__num] = __value
         self.__calculate_output()
         return self
 
