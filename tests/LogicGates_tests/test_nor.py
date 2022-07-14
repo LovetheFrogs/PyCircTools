@@ -20,15 +20,15 @@ def test_or_gate():
     assert not (bool)(norGate_overload.get_output()),("True and True not passed!")
 
     norGate.add_input()
-    assert not norGate.get_numOfInputs() == 3,("Input adding not passed!")
+    assert norGate.get_numOfInputs() == 3,("Input adding not passed!")
 
     norGate2 = Nor(3)
-    assert (bool)(norGate2.get_numOfInputs()) == 3,("Multiple inputs when building not passed!")
+    assert (norGate2.get_numOfInputs()) == 3,("Multiple inputs when building not passed!")
 
     assert not (bool)(norGate2.set_input(0, True).set_input(1, True).get_output()),("True and True and False not passed!")
 
     norGate2.remove_input()
-    assert not norGate2.get_numOfInputs() == 2,("Removing item not passed!")
+    assert norGate2.get_numOfInputs() == 2,("Removing item not passed!")
 
     assert not (bool)(norGate2.get_output()),("Testing output after removing input not passed!")
 
