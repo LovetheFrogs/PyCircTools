@@ -35,6 +35,21 @@ class Or:
             raise NotAnInput
 
         return self.input[num]
+    
+    def __getitem__(self, __num: int) -> bool:
+        """
+        Method overload to use [] operator to get the value of input[num].
+
+        :param num: Position of the input you want to get the value of.
+        :type num: int
+        :raises NotAnInput: Raised when the selected input does not exist.
+        :return: Returns the value of the input num.
+        :rtype: bool
+        """
+        if __num >= self.numOfInputs:
+            raise NotAnInput
+        
+        return self.input[__num]
 
     def get_output(self):
         """
@@ -74,6 +89,27 @@ class Or:
         self.input[num] = value
         self.__calculate_output()
         return self
+    
+    def __setitem__(self,__num: int,__value: bool) -> None:
+        """
+        Method that overloads [] operator to assign a certain input to the desired value, either True or False.
+
+        :param num: Number of the input selected.
+        :type num: int
+        :param value: Desired value of the input.
+        :type value: bool
+        :raises NotAnInput: Raised when the selected input does not exist.
+        :raises NotTruthValue: Raised when value's type is not bool.
+        """
+        if __num >= self.numOfInputs:
+            raise NotAnInput
+
+        if type(__value) is not bool:
+            raise NotTruthValue
+
+        self.input[__num] = __value
+        self.__calculate_output()
+        return self
 
     def add_input(self):
         """
@@ -84,14 +120,21 @@ class Or:
         self.__calculate_output()
         return self
 
-    def remove_input(self):
+    def remove_input(self, index=None):
         """
-        Removes the last input of a logic gate.
+        Removes the last input of a logic gate. or a specific input given an index
         """
-        self.input.pop()
-        self.numOfInputs -= 1
+        if index == None:
+            self.input.pop()
+        else:
+            if index > self.numOfInputs-1 or index < 0:
+                raise NotAnInput
+            self.input.pop(index)
+            
         self.__calculate_output()
+        self.numOfInputs -= 1
         return self
+
 
     def __calculate_output(self):
         output = False
