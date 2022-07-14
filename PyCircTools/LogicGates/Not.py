@@ -47,4 +47,4 @@ class Not:
 
     def __calculate_output(self):
         self.output = not self.input
-        return self
+ 

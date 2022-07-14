@@ -3,35 +3,37 @@ from PyCircTools.LogicGates import Or
 
 def test_or_gate():
     errors = []
-    orGate = Or.Or()
-
-    if orGate.get_output():
-        errors.append("False and False not passed!")
+    orGate = Or()
+    orGate_overload = Or()
+    
+    assert not (bool)(orGate.get_output()), ("False and False not passed!")
 
     orGate.set_input(0, True)
-    if not orGate.get_output():
-        errors.append("True and False not passed!")
+    assert (bool)(orGate.get_output()), ("True and False not passed!")
+
+    orGate_overload[0] = True
+    assert (bool)(orGate.get_output()), ("True and False not passed!")
 
     orGate.set_input(1, True)
-    if not orGate.get_output():
-        errors.append("True and True not passed!")
+    assert (bool)(orGate.get_output()), ("True and True not passed!")
+
+    orGate_overload[1] = True
+    assert (bool)(orGate.get_output()), ("True and True not passed!")
 
     orGate.add_input()
-    if not orGate.get_numOfInputs() == 3:
-        errors.append("Input adding not passed!")
+    assert orGate.get_numOfInputs() == 3, ("Input adding not passed!")
 
-    orGate2 = Or.Or(3)
-    if not orGate2.get_numOfInputs() == 3:
-        errors.append("Multiple inputs when building not passed!")
+    orGate2 = Or(3)
+    assert orGate2.get_numOfInputs() == 3, ("Multiple inputs when building not passed!")
 
-    if not orGate2.set_input(0, True).set_input(1, True).get_output():
-        errors.append("True and True and False not passed!")
+    assert (bool)(orGate2.set_input(0, True).set_input(1, True).get_output()),("True and True and False not passed!")
 
     orGate2.remove_input()
-    if not orGate2.get_numOfInputs() == 2:
-        errors.append("Removing item not passed!")
+    assert orGate2.get_numOfInputs() == 2, ("Removing item not passed!")
 
-    if not orGate2.get_output():
-        errors.append("Testing output after removing input not passed!")
+    assert (bool)(orGate2.get_output()), ("Testing output after removing input not passed!")
 
-    assert not errors, "errors occured:\n{}".format("\n".join(errors))
+    print("No errors in OR gate...")
+
+if __name__ == "__main__":
+    test_or_gate()
