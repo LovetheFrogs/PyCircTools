@@ -1,4 +1,5 @@
 from PyCircTools import DFlipflop, NotTruthValue, NotControlList, WrongSize
+# Copy is used to generate a copy of input so that it is not deleted when calculating output.
 import copy
 
 
