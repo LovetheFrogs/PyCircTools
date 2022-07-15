@@ -8,3 +8,4 @@ from PyCircTools.Operators.Adder import *
 from PyCircTools.Operators.Subtractor import *
 from PyCircTools.Operators.Alu import *
 from PyCircTools.Operators.Shifter import *
+from PyCircTools.Operators.Extender import *
