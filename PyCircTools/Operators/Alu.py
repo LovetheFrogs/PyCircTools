@@ -14,6 +14,10 @@ class Alu:
     Note that the less significant value is the 0th position of the list and so on.
     """
     def __init__(self):
+        """
+        Constructor of the ALU module. For reference on how this class works, use help(Alu). It is used to build an Alu
+        with opCode = 00, A and B = False.
+        """
         self.A = False
         self.B = False
         self.Operation = [False, False]
@@ -147,3 +151,5 @@ class Alu:
         self.carrSel.set_set(self.CarrySel)
         self.carrSel.set_input(0, self.adder.get_carryOut()).set_input(1, self.sub.get_carryOut())
         self.carryOut = self.carrSel.get_output()
+
+        return self
