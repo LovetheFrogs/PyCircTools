@@ -41,6 +41,15 @@ class WrongSize(OperatorException):
         super().__init__(self.msg)
 
 
+class WrongRange(OperatorException):
+    """
+    WrongRange is raised when the number of inputs is lower or equal than the number of inputs in certain modules.
+    """
+    def __init(self, obj):
+        self.msg = "Number of inputs of " + obj + " must be lower than the number of outputs."
+        super().__init__(self.msg)
+
+
 def get_adder_type(addr_class):
     """
     Method used to get the type of adder used.
