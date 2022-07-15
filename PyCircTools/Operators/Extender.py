@@ -1,4 +1,4 @@
-from PyCircTools import NotTruthValue, NotControlList, WrongSize
+from PyCircTools import NotTruthValue, NotControlList, WrongSize, WrongRange
 
 
 class Extender:
@@ -18,11 +18,14 @@ class Extender:
         :param pure: Used to know if the input is in pure binary or two's complement.
         :type pure: bool
         """
+        if into >= out:
+            raise WrongRange("Extender")
+
         self.numInto = into
         self.numOut = out
         self.pure = pure
         self.input = [False] * into
-        self.output = self.__calculate_output()
+        self.output = [False] * out
 
     def get_numIn(self):
         """
@@ -96,7 +99,7 @@ class Extender:
 
         self.input = values
         self.__set_pure(pure)
-        self.output == self.__calculate_output()
+        self.__calculate_output()
 
         return self
 
@@ -135,4 +138,5 @@ class Extender:
                 else:
                     output.append(self.input[self.numInto - 1])
 
-        return output
+        self.output = output
+        return self
