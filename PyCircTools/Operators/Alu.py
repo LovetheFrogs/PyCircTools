@@ -14,6 +14,10 @@ class Alu:
     Note that the less significant value is the 0th position of the list and so on.
     """
     def __init__(self):
+        """
+        Constructor of the ALU module. For reference on how this class works, use help(Alu). It is used to build an Alu
+        with opCode = 00, A and B = False.
+        """
         self.A = False
         self.B = False
         self.Operation = [False, False]
