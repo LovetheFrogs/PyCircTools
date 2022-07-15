@@ -151,3 +151,5 @@ class Alu:
         self.carrSel.set_set(self.CarrySel)
         self.carrSel.set_input(0, self.adder.get_carryOut()).set_input(1, self.sub.get_carryOut())
         self.carryOut = self.carrSel.get_output()
+
+        return self
