@@ -7,7 +7,7 @@ class Shifter:
     """
     Shifter module. Used to shift the position of the inputs left or right a given number of positions.
     """
-    def __init__(self, num=4, pos=1, dir=False):
+    def __init__(self, num=4, pos=1, dirs=False):
         """
         Constructor of the Shifter module. Takes three arguments, num, pos and dir. It defaults to a shifter with 4
         inputs that moves 1 position to the left.
@@ -21,21 +21,45 @@ class Shifter:
         """
         self.num_of_inputs = num
         self.positions = pos
-        self.D = dir
+        self.D = dirs
         self.input = [False] * num
         self.clock = False
         self.output = self.__calculate_output()
 
     def get_numOfInputs(self):
+        """
+        Method get_numOfInputs returns the number of inputs of the shifter.
+
+        :return: Number of inputs of the shifter.
+        :rtype: int
+        """
         return self.num_of_inputs
 
     def get_positions(self):
+        """
+        Method get_positions returns the number of positions the shifter moves.
+
+        :return: Number of positions to shift.
+        :rtype: int
+        """
         return self.positions
 
     def get_D(self):
+        """
+        Method get_D returns the direction of the shifter.
+
+        :return: Direction the shifter moves.
+        :rtype: bool
+        """
         return self.D
 
     def get_input(self):
+        """
+        Method get_input returns the input of the shifter.
+
+        :return: Input of the shift register in form of a list.
+        :rtype: list
+        """
         return self.input
 
     def get_output(self):
