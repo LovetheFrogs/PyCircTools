@@ -16,8 +16,8 @@ class Shifter:
         :type num: int
         :param pos: Number of positions the shifter will move the input.
         :type pos: int
-        :param dir: Direction the shifter moves (Defaults to False which is shift right. True is shift left).
-        :type dir: bool
+        :param dirs: Direction the shifter moves (Defaults to False which is shift right. True is shift left).
+        :type dirs: bool
         """
         self.num_of_inputs = num
         self.positions = pos
@@ -63,12 +63,31 @@ class Shifter:
         return self.input
 
     def get_output(self):
+        """
+        Method get_output returns the output of the shifter.
+
+        :return: Output of the shift register in the form of a list.
+        :rtype: list
+        """
         return self.output
 
     def get_clock(self):
+        """
+        Method get_clock returns the value of the clock.
+
+        :return: Value of the clock.
+        :rtype: bool
+        """
         return self.clock
 
     def set_D(self, value):
+        """
+        Method set_D is used to set the direction the shifter moves, being False -> shift right and True -> shift left.
+
+        :param value: New value of the D attribute.
+        :type value: bool
+        :raises NotTruthValue: Raised when value's type is not bool.
+        """
         if type(value) is not bool:
             raise NotTruthValue
 
@@ -77,6 +96,13 @@ class Shifter:
         return self
 
     def set_clock(self, value):
+        """
+        Method set_clock is used to set the value of the clock.
+
+        :param value: New value of the clock attribute.
+        :type value: bool
+        :raises NotTruthValue: Raised when value's type is not bool.
+        """
         if type(value) is not bool:
             raise NotTruthValue
 
@@ -85,6 +111,14 @@ class Shifter:
         return self
 
     def set_input(self, values):
+        """
+        Method set_input is used to set the input of the shifter to a list of bool.
+
+        :param values: List of values for the input.
+        :type values: list
+        :raises NotControlList: raised when a list of ovalues is not a list of bool or is not a list at all
+        :raises WrongSize: raised when the list of values does not have the required size
+        """
         if type(values) is not list:
             raise NotControlList
 
@@ -100,6 +134,15 @@ class Shifter:
         return self
 
     def __calculate_output(self):
+        """
+        Method __calculate_output is gets the value of the output of the shifter, depending on its direction, number of
+        positions to move and number of inputs. It uses the copy.copy method to create copies of the input and output
+        and avoid replacing the original values when not intended. The same method is used for both directions and all
+        possible combinations of number of inputs and positions to shift.
+
+        :return: Output the shifter will have.
+        :rtype: list
+        """
         output = [False] * self.num_of_inputs
         if self.clock:
             output = copy.copy(self.input)
