@@ -4,10 +4,24 @@ import copy
 
 
 class Shifter:
-    def __init__(self, num=4, positions=1):
+    """
+    Shifter module. Used to shift the position of the inputs left or right a given number of positions.
+    """
+    def __init__(self, num=4, pos=1, dir=False):
+        """
+        Constructor of the Shifter module. Takes three arguments, num, pos and dir. It defaults to a shifter with 4
+        inputs that moves 1 position to the left.
+
+        :param num: Number of inputs of the shifter.
+        :type num: int
+        :param pos: Number of positions the shifter will move the input.
+        :type pos: int
+        :param dir: Direction the shifter moves (Defaults to False which is shift right. True is shift left).
+        :type dir: bool
+        """
         self.num_of_inputs = num
-        self.positions = positions
-        self.D = False
+        self.positions = pos
+        self.D = dir
         self.input = [False] * num
         self.clock = False
         self.output = self.__calculate_output()
