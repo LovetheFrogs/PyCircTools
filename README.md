@@ -22,8 +22,9 @@ As of the latest update, I'm working on the next one, which will include adders,
 - [2. Logic Gates Module](#logic-gates)
 - [3. Multiplexers Module](#multiplexer)
 - [4. Latches Module](#latches)
-- [5. Exceptions](#exceptions) 
-- [6. About](#about)
+- [5. Operators](#operators)
+- [6. Exceptions](#exceptions) 
+- [7. About](#about)
 
 <a name="installing-CTools"></a>
 ## Installing PyCircTools and importing it.
@@ -53,6 +54,11 @@ To read the documentation for this module, [click this link](https://github.com/
 ## Latches Module
 
 To read the documentation for this module, [click this link](https://github.com/LovetheFrogs/PyCircTools/tree/main/PyCircTools/Latches).
+
+<a name="operators"></a>
+## Operators Module
+
+To read the documentation for this module, [click this link](https://github.com/LovetheFrogs/PyCircTools/blob/main/PyCircTools/Operators).
 
 <a name="exceptions"></a>
 ## Exceptions
